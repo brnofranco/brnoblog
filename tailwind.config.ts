@@ -10,8 +10,15 @@ const config: Config = {
 			},
 			colors: {
 				postBody: '#232427',
-				button: '#1abc9c',
+				title: '#2cb67d',
+				text: '#c9d3e7',
+				background: '#2a2d34',
 				header: '#101010',
+			},
+			flex: {
+				'2': '2 2 0%',
+				'3': '3 3 0%',
+				'4': '4 4 0%',
 			},
 		},
 	},

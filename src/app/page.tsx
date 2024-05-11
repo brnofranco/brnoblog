@@ -25,13 +25,14 @@ export default async function Home() {
 				<div className="w-4/5 h-full flex items-center justify-center flex-col gap-4">
 					{allPosts.map((post) => {
 						const content = post.content.value.document.children[0].children[0].value;
+						const slicedContent = content.slice(0, 33);
 						return (
 							<div key={post.id} className="w-full h-full p-3 bg-postBody rounded-lg">
 								<h1 className="font-bold">
 									<Link href={`/posts/${post.slug}`}> {post.title} </Link>
 								</h1>
 
-								<p className="text-gray-400">{content}</p>
+								<p className="text-gray-400">{slicedContent}</p>
 
 								<Link href={`/posts/${post.slug}`} className="text-blue-300 underline">
 									Veja o post completo

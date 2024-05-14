@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.structured-data {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+}
+
+.structured-data h2,
+.structured-data h3,
+.structured-data h4 {
+	margin-top: 1.5rem;
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+
+.structured-data p {
+	text-align: justify;
+}
+
+.structured-data a {
+	text-decoration: underline;
+	color: var(--title);
+}
+

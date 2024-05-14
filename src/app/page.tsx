@@ -1,85 +1,46 @@
 import Header from '@/components/Header';
-import PostCard from '@/components/Post';
-import { performRequest } from '@/lib/datocms';
-import { draftMode } from 'next/headers';
 import Link from 'next/link';
-import { SRCImage } from 'react-datocms';
 import Footer from '../components/Footer';
-import dayjs from 'dayjs';
+import SocialSideBar from '../components/Social';
+import { getFormattedDate } from '@/shared/dayjs';
+import getAllPosts from '@/services/getAllPosts';
 
-const PAGE_CONTENT_QUERY: string = `
-query Post {
-	allPosts {
-		_createdAt
-		title
-		slug
-		cover {
-			responsiveImage {
-				sizes
-				src
-				width
-				height
-				alt
-				title
-				base64
-			}
-		}
-		content {
-			value
-			blocks {
-				__typename
-				... on ImageBlockRecord {
-					id
-					image {
-						responsiveImage {
-							sizes
-							src
-							width
-							height
-							alt
-							title
-							base64
-						}
-					}
-				}
-			}
-		}
-	}
-  }`;
+interface PostData {
+	_createdAt: string;
+	title: string;
+	slug: string;
+	preview: string;
+}
 
 export default async function Home() {
-	const { isEnabled } = draftMode();
-
-	const { allPosts } = await performRequest({ query: PAGE_CONTENT_QUERY, revalidate: 0, includeDrafts: isEnabled });
-
-	const postDate = (date: string) => dayjs(date).format('DD/MM/YYYY - HH:mm');
+	const allPosts = await getAllPosts();
 
 	return (
 		<div className="h-full w-full">
 			<Header />
-			<div className="h-full w-full flex justify-center">
-				<div className="w-3/5 h-full flex justify-center gap-8">
-					<div className="flex-2 w-full h-full shadow-lg">
-						<PostCard post={allPosts[0]} />
-					</div>
-					<div className="flex-1 w-full h-full shadow-lg">
-						<div className="w-full h-full p-4 bg-postBody rounded-lg flex flex-col gap-6">
-							<div className="flex items-center flex-col gap-6">
-								<h3 className="text-xl font-bold">Todas as publicações:</h3>
-								<hr className="w-32 h-[1px] border-none border-t-2 bg-gray-500 " />
-							</div>
-							{allPosts.map((post) => {
+			<div className="min-h-screen h-full w-full flex justify-center">
+				<div className="w-4/5 xl:w-4/6 h-full flex flex-col xl:flex-row justify-center gap-16">
+					<div className="flex-2 w-full h-full">
+						<div className="w-full h-full flex flex-col items-center gap-10">
+							{allPosts.map((post: PostData) => {
 								return (
 									<div key={post.slug} className="h-full w-full flex flex-col gap-2">
-										<h4 className="font-bold underline">
-											<Link href={`/posts/${post.slug}`}> {post.title} </Link>
-										</h4>
+										<p className="text-sm text-slate-500">{getFormattedDate(post._createdAt)}</p>
 
-										<p className="">{postDate(post._createdAt)}</p>
+										<Link href={`/posts/${post.slug}`}>
+											<h2 className="text-title font-bold text-2xl">{post.title}</h2>
+										</Link>
+
+										<h5>{post.preview.slice(0, 150)}...</h5>
+
+										<hr className="w-full h-[2px] border-none border-t-2 bg-gray-600 mt-6" />
 									</div>
 								);
 							})}
 						</div>
+					</div>
+					<div className="flex-1 w-full h-full shadow-lg flex flex-col gap-10">
+						<SocialSideBar />
 					</div>
 				</div>
 			</div>

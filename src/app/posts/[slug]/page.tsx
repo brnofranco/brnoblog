@@ -1,6 +1,11 @@
 import Header from '@/components/Header';
 import { performRequest } from '@/lib/datocms';
 import PostCard from '../../../components/Post';
+import Footer from '@/components/Footer';
+import SocialSideBar from '@/components/Social';
+import { redirect } from 'next/navigation';
+import LatestPostsSideBar from '@/components/LatestPosts';
+import getAllPosts from '@/services/getAllPosts';
 
 export default async function Post({ params }) {
 	const PAGE_CONTENT_QUERY = `
@@ -45,17 +50,29 @@ export default async function Post({ params }) {
 	const { post } = await performRequest({ query: PAGE_CONTENT_QUERY, revalidate: 0 });
 
 	if (!post?.title) {
-		return <h1>Not found fera</h1>;
+		redirect('/404');
 	}
+
+	const allPosts = await getAllPosts();
 
 	return (
 		<div className="h-full w-full">
 			<Header />
 			<div className="h-full w-full flex justify-center">
-				<div className="w-3/5 h-full flex items-center justify-center flex-col gap-4">
-					<PostCard post={post} />
+				<div className="w-4/5 xl:w-4/6 h-full flex flex-col xl:flex-row justify-center gap-16">
+					<div className="flex-2 w-full h-full">
+						<div className="h-full w-full flex justify-center">
+							<PostCard post={post} />
+						</div>
+					</div>
+
+					<div className="flex-1 w-full h-full shadow-lg flex flex-col gap-10">
+						<LatestPostsSideBar allPosts={allPosts} />
+						<SocialSideBar />
+					</div>
 				</div>
 			</div>
+			<Footer />
 		</div>
 	);
 }

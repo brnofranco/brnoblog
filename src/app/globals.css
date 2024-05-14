@@ -3,19 +3,21 @@
 @tailwind utilities;
 
 :root {
-	--title: #c9d3e7;
+	--title: #2cb67d;
+	--text: #c9d3e7;
 	--background: #2a2d34;
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--title: #c9d3e7;
+		--title: #2cb67d;
+		--text: #c9d3e7;
 		--background: #2a2d34;
 	}
 }
 
 body {
-	color: var(--title);
+	color: var(--text);
 	background: var(--background);
 }
 

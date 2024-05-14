@@ -1,13 +1,14 @@
-import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css';
+import './styles.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
-	title: 'brnoblog',
-	description: 'Blog do Bruno Franco',
-};
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+	return {
+		title: `brnoblog - ${params.slug}`,
+		description: 'Blog do Bruno Franco',
+	};
+}
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
 	return (

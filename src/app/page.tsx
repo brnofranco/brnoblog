@@ -4,12 +4,19 @@ import Footer from '../components/Footer';
 import SocialSideBar from '../components/Social';
 import { getFormattedDate } from '@/shared/dayjs';
 import getAllPosts from '@/services/getAllPosts';
+import CategorySideBar from '@/components/Category';
 
-interface PostData {
+export interface CategoryData {
+	title: string;
+	id: string;
+}
+
+export interface PostData {
 	_createdAt: string;
 	title: string;
 	slug: string;
 	preview: string;
+	categories: CategoryData[];
 }
 
 export default async function Home() {
@@ -24,14 +31,23 @@ export default async function Home() {
 						<div className="w-full h-full flex flex-col items-center gap-10">
 							{allPosts.map((post: PostData) => {
 								return (
-									<div key={post.slug} className="h-full w-full flex flex-col gap-2">
-										<p className="text-sm text-slate-500">{getFormattedDate(post._createdAt)}</p>
+									<div key={post.slug} className="h-full w-full flex flex-col gap-3">
+										<div className="w-full flex justify-between items-center">
+											<p className="w-52 text-sm text-slate-500">{getFormattedDate(post._createdAt)}</p>
+											<div className="w-full flex justify-end items-center gap-2">
+												{post.categories.map((category) => (
+													<div key={category.id} className="p-1 border border-title rounded-sm">
+														<p className="text-title text-xs">{category.title}</p>
+													</div>
+												))}
+											</div>
+										</div>
 
 										<Link href={`/posts/${post.slug}`}>
 											<h2 className="text-title font-bold text-2xl">{post.title}</h2>
 										</Link>
 
-										<h5>{post.preview.slice(0, 150)}...</h5>
+										<h5 className="text-justify">{post.preview.slice(0, 255)}...</h5>
 
 										<hr className="w-full h-[2px] border-none border-t-2 bg-gray-600 mt-6" />
 									</div>
@@ -40,6 +56,7 @@ export default async function Home() {
 						</div>
 					</div>
 					<div className="flex-1 w-full h-full shadow-lg flex flex-col gap-10">
+						<CategorySideBar />
 						<SocialSideBar />
 					</div>
 				</div>

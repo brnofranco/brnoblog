@@ -6,6 +6,7 @@ import SocialSideBar from '@/components/Social';
 import { redirect } from 'next/navigation';
 import LatestPostsSideBar from '@/components/LatestPosts';
 import getAllPosts from '@/services/getAllPosts';
+import CategorySideBar from '@/components/Category';
 
 export default async function Post({ params }) {
 	const PAGE_CONTENT_QUERY = `
@@ -68,6 +69,7 @@ export default async function Post({ params }) {
 
 					<div className="flex-1 w-full h-full shadow-lg flex flex-col gap-10">
 						<LatestPostsSideBar allPosts={allPosts} />
+						<CategorySideBar />
 						<SocialSideBar />
 					</div>
 				</div>

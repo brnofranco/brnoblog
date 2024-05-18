@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export default function SocialSideBar() {
 	return (
-		<aside className="flex items-center p-8 gap-6 bg-postBody rounded-lg flex-col">
+		<aside className="w-full h-full flex items-center p-8 gap-6 bg-postBody rounded-lg flex-col">
 			<div className="flex items-center flex-col gap-4">
 				<h3 className="text-xl font-bold">Minhas redes</h3>
 				<hr className="w-20 h-[1px] border-none border-t-2 bg-gray-500" />

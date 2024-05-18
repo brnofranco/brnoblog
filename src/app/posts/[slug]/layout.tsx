@@ -8,10 +8,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-	return (
-		<html lang="pt-br">
-			<body>{children}</body>
-		</html>
-	);
+	return <>{children}</>;
 }
 

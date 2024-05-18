@@ -26,7 +26,7 @@ export default async function Home() {
 		<div className="h-full w-full">
 			<Header />
 			<div className="min-h-screen h-full w-full flex justify-center">
-				<div className="w-4/5 xl:w-4/6 h-full flex flex-col xl:flex-row justify-center gap-16">
+				<div className="w-4/5 xl:max-w-[1280px] h-full flex flex-col xl:flex-row justify-center gap-16">
 					<div className="flex-2 w-full h-full">
 						<div className="w-full h-full flex flex-col items-center gap-10">
 							{allPosts.map((post: PostData) => {
@@ -55,7 +55,7 @@ export default async function Home() {
 							})}
 						</div>
 					</div>
-					<div className="flex-1 w-full h-full shadow-lg flex flex-col gap-10">
+					<div className="flex-1 w-full h-full flex flex-col gap-10">
 						<CategorySideBar />
 						<SocialSideBar />
 					</div>

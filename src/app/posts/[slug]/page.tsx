@@ -60,17 +60,19 @@ export default async function Post({ params }) {
 		<div className="h-full w-full">
 			<Header />
 			<div className="h-full w-full flex justify-center">
-				<div className="w-4/5 xl:w-4/6 h-full flex flex-col xl:flex-row justify-center gap-16">
+				<div className="w-[95%] xl:max-w-[1280px] h-full flex flex-col xl:flex-row justify-center gap-16">
 					<div className="flex-2 w-full h-full">
 						<div className="h-full w-full flex justify-center">
 							<PostCard post={post} />
 						</div>
 					</div>
 
-					<div className="flex-1 w-full h-full shadow-lg flex flex-col gap-10">
-						<LatestPostsSideBar allPosts={allPosts} />
-						<CategorySideBar />
-						<SocialSideBar />
+					<div className="flex-1 w-full h-full">
+						<div className="w-[95%] xl:w-full m-auto flex flex-col justify-center items-center gap-10">
+							<LatestPostsSideBar allPosts={allPosts} />
+							<CategorySideBar />
+							<SocialSideBar />
+						</div>
 					</div>
 				</div>
 			</div>

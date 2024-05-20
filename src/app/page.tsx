@@ -32,9 +32,10 @@ export default async function Home() {
 							{allPosts.map((post: PostData) => {
 								return (
 									<div key={post.slug} className="h-full w-full flex flex-col gap-3">
-										<div className="w-full flex justify-between items-center">
-											<p className="w-52 text-sm text-slate-500">{getFormattedDate(post._createdAt)}</p>
-											<div className="w-full flex justify-end items-center gap-2">
+										<div className="w-full flex flex-col xl:flex-row justify-between items-center gap-2">
+											<p className="w-full xl:w-52 text-sm text-slate-500">{getFormattedDate(post._createdAt)}</p>
+
+											<div className="w-full flex justify-start xl:justify-end items-center flex-wrap gap-2">
 												{post.categories.map((category) => (
 													<div key={category.id} className="p-1 border border-title rounded-sm">
 														<p className="text-title text-xs">{category.title}</p>

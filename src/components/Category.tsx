@@ -12,7 +12,7 @@ export default async function CategorySideBar() {
 			</div>
 			<div className="w-full h-full flex flex-wrap justify-center items-center gap-3">
 				{allCategories.map((category) => (
-					<Link href="/" key={category.id}>
+					<Link href={{ pathname: `/posts/category/${category.title}`, query: { id: category.id } }} key={category.id}>
 						<div className="p-3 bg-background shadow-sm hover:bg-title hover:text-background transition">
 							<p className="text-xs">{category.title}</p>
 						</div>

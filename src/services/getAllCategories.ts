@@ -3,7 +3,7 @@ import { draftMode } from 'next/headers';
 import { CategoryData } from '../app/page';
 
 const PAGE_CONTENT_QUERY: string = `
-query Category {
+query AllCategories {
     allCategories {
         id
         title

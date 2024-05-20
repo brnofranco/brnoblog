@@ -3,8 +3,8 @@ import { performRequest } from '@/lib/datocms';
 import { draftMode } from 'next/headers';
 
 const PAGE_CONTENT_QUERY: string = `
-query Post {
-    allPosts {
+query AllPosts {
+    allPosts (orderBy: [_createdAt_DESC])  {
         _createdAt
         title
         slug

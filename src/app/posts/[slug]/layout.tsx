@@ -1,8 +1,12 @@
 import './styles.css';
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
+	const { slug } = params;
+
+	const title = slug.charAt(0).toUpperCase() + slug.slice(1).replaceAll('-', ' ');
+
 	return {
-		title: `brnoblog - ${params.slug}`,
+		title,
 		description: 'Blog do Bruno Franco',
 	};
 }

@@ -1,13 +1,15 @@
+import { PostData } from '@/app/page';
 import { getFormattedDate } from '@/shared/dayjs';
 import Link from 'next/link';
+import SideBarLayout from './SideBarLayout';
 
-export default async function LatestPostsSideBar({ allPosts }) {
+interface LatestPostsSideBarProps {
+	allPosts: PostData[];
+}
+
+export default async function LatestPostsSideBar({ allPosts }: Readonly<LatestPostsSideBarProps>) {
 	return (
-		<aside className="w-full h-full p-8 bg-postBody rounded-lg flex flex-col gap-6">
-			<div className="flex items-center flex-col gap-4">
-				<h3 className="text-xl font-bold">Últimas publicações</h3>
-				<hr className="w-20 h-[1px] border-none border-t-2 bg-gray-500" />
-			</div>
+		<SideBarLayout title="Últimas publicações">
 			{allPosts.map((post) => {
 				return (
 					<div key={post.slug} className="h-full w-full flex flex-col gap-2">
@@ -19,6 +21,6 @@ export default async function LatestPostsSideBar({ allPosts }) {
 					</div>
 				);
 			})}
-		</aside>
+		</SideBarLayout>
 	);
 }

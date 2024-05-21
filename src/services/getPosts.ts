@@ -1,6 +1,5 @@
 import { PostData } from '@/app/page';
 import { performRequest } from '@/lib/datocms';
-import { draftMode } from 'next/headers';
 
 const PAGE_CONTENT_QUERY: string = `
 query AllPosts {
@@ -17,9 +16,7 @@ query AllPosts {
 }`;
 
 export default async function getAllPosts() {
-	const { isEnabled } = draftMode();
-
-	const { allPosts } = await performRequest({ query: PAGE_CONTENT_QUERY, revalidate: 10, includeDrafts: isEnabled });
+	const { allPosts } = await performRequest({ query: PAGE_CONTENT_QUERY, revalidate: 10 });
 
 	return allPosts as PostData[];
 }

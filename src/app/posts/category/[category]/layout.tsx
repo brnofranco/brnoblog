@@ -1,6 +1,8 @@
 export async function generateMetadata({ params }: { params: { category: string } }) {
+	const { category } = params;
+
 	return {
-		title: `brnoblog - ${params.category}`,
+		title: `Posts sobre ${category.replaceAll('%20', ' ')}`,
 		description: 'Blog do Bruno Franco',
 	};
 }

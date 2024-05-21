@@ -67,6 +67,7 @@ export default async function Category({ params, searchParams }: Readonly<Catego
 					)}
 				</div>
 			</div>
+
 			<div className="flex-1 w-full h-full flex flex-col gap-10">
 				<CategorySideBar />
 				<SocialMediaSideBar />

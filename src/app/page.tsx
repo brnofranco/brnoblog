@@ -55,6 +55,7 @@ export default async function Home() {
 					})}
 				</div>
 			</div>
+
 			<div className="flex-1 w-full h-full flex flex-col gap-10">
 				<CategorySideBar />
 				<SocialMediaSideBar />

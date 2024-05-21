@@ -4,12 +4,12 @@ import { ReactNode } from 'react';
 export default function PageLayout({ children }: Readonly<{ children: ReactNode }>) {
 	return (
 		<div className="h-full w-full">
-			<header className="h-full w-full p-4 flex justify-center items-center bg-header shadow-lg mb-10 text-title font-extrabold text-2xl">
+			<header className="h-full w-full p-4 flex justify-center items-center bg-header shadow-lg mb-4 xl:mb-10 text-title font-extrabold text-2xl">
 				<Link href="/"> brnoblog </Link>
 			</header>
 
 			<div className="min-h-screen h-full w-full flex justify-center">
-				<div className="w-4/5 xl:max-w-[1280px] h-full flex flex-col xl:flex-row justify-center gap-16">{children}</div>
+				<div className="w-11/12 xl:max-w-[1280px] h-full flex flex-col xl:flex-row justify-center gap-10">{children}</div>
 			</div>
 
 			<footer className="h-full w-full flex justify-center items-center bg-header shadow-lg py-8 mt-12">

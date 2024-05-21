@@ -38,7 +38,7 @@ export default async function Post({ params }: Readonly<PostProps>) {
 		<>
 			<div className="flex-2 w-full h-full">
 				<div className="h-full w-full flex justify-center">
-					<div key={post.id} className="w-full h-full p-8 bg-postBody shadow-md">
+					<div key={post.id} className="w-full h-full p-4 xl:p-8 bg-postBody shadow-md">
 						<h1 className="font-bold text-3xl mb-12 text-center">{post.title}</h1>
 
 						<p className="text-gray-400 text-sm text-center">Escrito por Bruno Franco | {getFormattedDate(post._createdAt)}</p>
@@ -54,12 +54,10 @@ export default async function Post({ params }: Readonly<PostProps>) {
 				</div>
 			</div>
 
-			<div className="flex-1 w-full h-full">
-				<div className="w-[95%] xl:w-full m-auto flex flex-col justify-center items-center gap-10">
-					<LatestPostsSideBar allPosts={allPosts} />
-					<CategorySideBar />
-					<SocialMediaSideBar />
-				</div>
+			<div className="flex-1 w-full h-full flex flex-col gap-10">
+				<LatestPostsSideBar allPosts={allPosts} />
+				<CategorySideBar />
+				<SocialMediaSideBar />
 			</div>
 		</>
 	);

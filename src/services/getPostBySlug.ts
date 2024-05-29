@@ -36,6 +36,12 @@ export default async function getPostBySlug(slug: string) {
                             }
                         }
                     }
+                    ... on CodeBlockRecord {
+                        id
+                        codeBlock {
+                          value
+                        }
+                    }
                 }
             }
         }

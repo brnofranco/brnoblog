@@ -10,6 +10,11 @@ export default function Loading() {
 			</div>
 
 			<div className="flex-2 w-full h-full">
+				<div className="w-60 flex flex-col gap-2">
+					<div className="bg-title p-2 rounded-lg opacity-25"></div>
+					<div className="bg-slate-500 mb-8 p-4 rounded-lg opacity-25"></div>
+				</div>
+
 				<div className="w-full h-full flex flex-col items-center gap-10">
 					<div className="h-full w-full flex flex-col gap-3">
 						<div className="w-full flex flex-col xl:flex-row justify-between items-center gap-2">

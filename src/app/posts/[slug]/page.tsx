@@ -62,7 +62,7 @@ export default async function Post({ params }: Readonly<PostProps>) {
 						<h1 className="font-bold text-3xl mb-12 text-center">{post.title}</h1>
 
 						<p className="text-gray-400 text-sm text-center">
-							Escrito por Bruno Franco | {getFormattedDate(post._createdAt)}
+							Escrito por Bruno Franco | Publicado em {getFormattedDate(post._createdAt)}
 						</p>
 
 						<hr className="w-full h-[1px] border-none border-t-2 bg-gray-700 my-10" />

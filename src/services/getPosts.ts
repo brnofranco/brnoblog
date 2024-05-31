@@ -16,7 +16,7 @@ query AllPosts {
 }`;
 
 export default async function getAllPosts() {
-	const { allPosts } = await performRequest({ query: PAGE_CONTENT_QUERY, revalidate: 10 });
+	const { allPosts } = await performRequest({ query: PAGE_CONTENT_QUERY, revalidate: 0 });
 
 	return allPosts as PostData[];
 }

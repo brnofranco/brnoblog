@@ -47,7 +47,7 @@ export default async function getPostBySlug(slug: string) {
         }
     }`;
 
-	const { post } = await performRequest({ query: PAGE_CONTENT_QUERY, revalidate: 10 });
+	const { post } = await performRequest({ query: PAGE_CONTENT_QUERY, revalidate: 0 });
 
 	return post as PostData;
 }

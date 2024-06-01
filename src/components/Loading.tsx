@@ -2,7 +2,7 @@
 
 export default function LoadingAnimation() {
 	return (
-		<div className="mt-[-5rem] h-screen w-full flex justify-center items-center">
+		<>
 			<svg
 				aria-hidden="true"
 				className="w-32 h-32 text-gray-200 animate-spin dark:text-gray-600 fill-title"
@@ -19,6 +19,6 @@ export default function LoadingAnimation() {
 				/>
 			</svg>
 			<span className="sr-only">Carregando</span>
-		</div>
+		</>
 	);
 }

@@ -5,12 +5,12 @@ import LoadingAnimation from '@/components/Loading';
 export default function Loading() {
 	return (
 		<>
-			<div className="absolute mt-[-5rem] h-screen w-full flex justify-center items-center">
-				<LoadingAnimation />
-			</div>
-
 			<div className="flex-2 w-full h-full">
 				<div className="w-full h-full flex flex-col items-center gap-10">
+					<div className="mt-[-5rem] absolute h-screen flex items-center justify-center">
+						<LoadingAnimation />
+					</div>
+
 					<div className="h-full w-full flex flex-col gap-3">
 						<div className="w-full flex flex-col xl:flex-row justify-between items-center gap-2">
 							<p className="w-full xl:w-64 bg-slate-500 p-2 rounded-lg opacity-25"></p>
@@ -44,10 +44,10 @@ export default function Loading() {
 			</div>
 
 			<div className="flex-1 w-full h-full flex flex-col gap-10">
-				<div className="w-full p-16 bg-postBody rounded-lg opacity-50"></div>
-				<div className="w-full p-16 bg-postBody rounded-lg opacity-50"></div>
-				<div className="w-full p-16 bg-postBody rounded-lg opacity-50"></div>
-				<div className="w-full p-16 bg-postBody rounded-lg opacity-50"></div>
+				<div className="w-full p-16 bg-postBody opacity-50"></div>
+				<div className="w-full p-16 bg-postBody opacity-50"></div>
+				<div className="w-full p-16 bg-postBody opacity-50"></div>
+				<div className="w-full p-16 bg-postBody opacity-50"></div>
 			</div>
 		</>
 	);

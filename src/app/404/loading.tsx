@@ -3,5 +3,9 @@
 import LoadingAnimation from '@/components/Loading';
 
 export default function Loading() {
-	return <LoadingAnimation />;
+	return (
+		<div className="mt-[-5rem] w-full h-screen flex justify-center items-center">
+			<LoadingAnimation />
+		</div>
+	);
 }

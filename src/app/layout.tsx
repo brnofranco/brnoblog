@@ -3,7 +3,7 @@ import './globals.css';
 import PageLayout from '../components/PageLayout';
 
 export const metadata: Metadata = {
-	title: 'brnoblog',
+	title: 'brnoblog - Posts',
 	description: 'Blog do Bruno Franco',
 };
 

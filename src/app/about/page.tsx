@@ -1,6 +1,9 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { MdPortrait } from 'react-icons/md';
 
 export default function About() {
 	return (
@@ -11,12 +14,12 @@ export default function About() {
 
 					<hr className="w-full h-[1px] border-none border-t-2 bg-gray-700 my-10" />
 
-					<div className="flex flex-row justify-center items-center gap-12">
+					<div className="flex flex-col xl:flex-row justify-center items-center gap-12">
 						<Image
 							src="https://github.com/brnofranco.png"
 							width={150}
 							height={150}
-							alt="Foto do altor Bruno"
+							alt="Foto do autor Bruno"
 						/>
 
 						<p className="text-justify">
@@ -26,6 +29,20 @@ export default function About() {
 							Node.js e Java. Prática na criação de Testes Unitários e Testes de Componente. Atuação em
 							times com metodologia ágil Scrum, bem como realização code reviews e refinamentos técnicos.
 						</p>
+
+						<div className="flex justify-center items-center gap-4">
+							<Link href="https://www.linkedin.com/in/brunofmoraes/" target="_blank" title="LinkedIn">
+								<FaLinkedin color="#2cb67d" size="36" />
+							</Link>
+
+							<Link href="https://github.com/brnofranco" target="_blank" title="GitHub">
+								<FaGithub color="#2cb67d" size="36" />
+							</Link>
+
+							<Link href="https://brnofranco.vercel.app" target="_blank" title="Portfólio">
+								<MdPortrait color="#2cb67d" size="42" />
+							</Link>
+						</div>
 					</div>
 				</div>
 			</div>

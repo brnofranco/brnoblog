@@ -1,7 +1,7 @@
-import { PostData } from '@/app/page';
 import { getFormattedDate } from '@/shared/dayjs';
-import Link from 'next/link';
+import { PostData } from './PostPreview';
 import SideBarLayout from './SideBarLayout';
+import Link from 'next/link';
 
 interface LatestPostsSideBarProps {
 	allPosts: PostData[];

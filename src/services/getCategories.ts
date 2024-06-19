@@ -1,5 +1,5 @@
+import { CategoryData } from '@/components/PostPreview';
 import { performRequest } from '@/lib/datocms';
-import { CategoryData } from '../app/page';
 
 const PAGE_CONTENT_QUERY: string = `
 query AllCategories {

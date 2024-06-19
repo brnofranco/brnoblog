@@ -1,4 +1,4 @@
-import { PostData } from '@/app/page';
+import { PostData } from '@/components/PostPreview';
 import { performRequest } from '@/lib/datocms';
 
 export default async function getPostBySlug(slug: string) {

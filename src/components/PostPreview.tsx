@@ -24,7 +24,7 @@ export default function PostPreview({ post }: Readonly<{ post: PostData }>) {
 	return (
 		<div key={post.slug} className="h-full w-full flex flex-col gap-3">
 			<div className="w-full flex flex-col xl:flex-row justify-between items-center gap-2">
-				<p className="w-full xl:w-64 text-sm text-slate-500">{getFormattedDate(post._createdAt)}</p>
+				<p className="w-full xl:w-96 text-sm text-slate-500">{getFormattedDate(post._createdAt)}</p>
 
 				<div className="w-full flex justify-start xl:justify-end items-center flex-wrap gap-2">
 					{post.categories.map((category) => (

@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { ReactNode } from 'react';
 import { FaCircleArrowUp } from 'react-icons/fa6';
+import { links } from './SocialMediaSideBar';
+import Image from 'next/image';
 
 export default function PageLayout({ children }: Readonly<{ children: ReactNode }>) {
 	const scrollToTop = () => {
@@ -16,8 +18,8 @@ export default function PageLayout({ children }: Readonly<{ children: ReactNode 
 		<div className="h-full w-full">
 			<header className="h-full w-full py-4 flex justify-center items-center bg-header shadow-lg mb-4 xl:mb-10">
 				<nav className="w-11/12 xl:max-w-[1280px] flex justify-between items-center">
-					<Link href="/" className="text-title font-extrabold text-2xl">
-						brnoblog
+					<Link href="/" className="text-title font-extrabold text-2xl flex gap items-center">
+						<Image src="/icon.svg" alt="bruno franco icon" width={26} height={26} /> rnoblog
 					</Link>
 
 					<div className="flex items-center gap-10 justify-end">
@@ -25,8 +27,8 @@ export default function PageLayout({ children }: Readonly<{ children: ReactNode 
 							home
 						</Link>
 
-						<Link href="/about" className="text-text text-lg">
-							sobre
+						<Link href={links.portfolio} target="_blank" className="text-text text-lg">
+							autor
 						</Link>
 					</div>
 				</nav>

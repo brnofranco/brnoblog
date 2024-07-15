@@ -7,7 +7,6 @@ export default function Loading() {
 		<>
 			<div className="flex-2 w-full h-full">
 				<div className="w-60 flex flex-col gap-2">
-					<div className="bg-title p-2 rounded-lg opacity-25"></div>
 					<div className="bg-slate-500 mb-8 p-4 rounded-lg opacity-25"></div>
 				</div>
 

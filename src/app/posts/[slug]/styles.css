@@ -8,12 +8,22 @@
 	gap: 1.25rem;
 }
 
-.structured-data h2,
-.structured-data h3,
-.structured-data h4 {
-	margin-top: 1.5rem;
-	font-size: 1.5rem;
+.structured-data h2 {
 	font-weight: 700;
+	font-size: 2rem;
+	margin-top: 2rem;
+}
+
+.structured-data h3 {
+	font-weight: 700;
+	font-size: 1.75rem;
+	margin-top: 1.5rem;
+}
+
+.structured-data h4 {
+	font-weight: 700;
+	font-size: 1.5rem;
+	margin-top: 1.25rem;
 }
 
 .structured-data p {

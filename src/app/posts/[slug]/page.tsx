@@ -59,7 +59,7 @@ export default async function Post({ params }: Readonly<PostProps>) {
 			<div className="flex-2 w-full h-full">
 				<div className="h-full w-full flex justify-center">
 					<div key={post.id} className="w-full h-full p-4 xl:p-8 bg-postBody shadow-md">
-						<h1 className="font-bold text-3xl mb-12 text-center">{post.title}</h1>
+						<h1 className="font-bold text-5xl mb-12 text-center">{post.title}</h1>
 
 						<p className="text-gray-400 text-sm text-center">
 							Escrito por Bruno Franco | Publicado em {getFormattedDate(post._createdAt)}

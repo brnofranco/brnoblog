@@ -8,15 +8,15 @@ export default async function Home() {
 
 	return (
 		<>
-			<div className="flex-2 w-full h-full">
-				<div className="w-full h-full flex flex-col items-center gap-10">
+			<div className="h-full w-full flex-2">
+				<div className="flex h-full w-full flex-col items-center gap-10">
 					{allPosts.map((post: PostData) => {
 						return <PostPreview key={post.slug} post={post} />;
 					})}
 				</div>
 			</div>
 
-			<div className="flex-1 w-full h-full flex flex-col gap-10">
+			<div className="flex h-full w-full flex-1 flex-col gap-10">
 				<CategorySideBar />
 				<SocialMediaSideBar />
 			</div>

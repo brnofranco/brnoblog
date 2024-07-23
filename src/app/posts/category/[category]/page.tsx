@@ -23,10 +23,10 @@ export default async function Category({ params, searchParams }: Readonly<Catego
 
 	return (
 		<>
-			<div className="flex-2 w-full h-full">
-				<h1 className="text-3xl font-bold mb-8">Posts sobre {categoryTitle}:</h1>
+			<div className="h-full w-full flex-2">
+				<h1 className="mb-8 text-3xl font-bold">Posts sobre {categoryTitle}:</h1>
 
-				<div className="w-full h-full flex flex-col items-center gap-10">
+				<div className="flex h-full w-full flex-col items-center gap-10">
 					{allPosts.length > 0 ? (
 						allPosts.map((post: PostData) => {
 							return <PostPreview key={post.slug} post={post} />;
@@ -39,7 +39,7 @@ export default async function Category({ params, searchParams }: Readonly<Catego
 				</div>
 			</div>
 
-			<div className="flex-1 w-full h-full flex flex-col gap-10">
+			<div className="flex h-full w-full flex-1 flex-col gap-10">
 				<CategorySideBar />
 				<SocialMediaSideBar />
 			</div>

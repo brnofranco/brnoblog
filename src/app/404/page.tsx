@@ -4,10 +4,10 @@ import Link from 'next/link';
 
 export default function Home() {
 	return (
-		<div className="h-full w-full flex justify-center items-center flex-col gap-4 mt-32">
-			<h1 className="text-5xl font-bold text-center">Página não encontrada!</h1>
+		<div className="mt-32 flex h-full w-full flex-col items-center justify-center gap-4">
+			<h1 className="text-center text-5xl font-bold">Página não encontrada!</h1>
 			<Link href="/">
-				<p className="underline text-title text-xl">Voltar para Home</p>
+				<p className="text-xl text-title underline">Voltar para Home</p>
 			</Link>
 		</div>
 	);

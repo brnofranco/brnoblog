@@ -7,10 +7,13 @@ export default async function CategorySideBar() {
 
 	return (
 		<SideBarLayout title="Buscar por categoria">
-			<div className="w-full h-full flex flex-wrap justify-center items-center gap-3">
+			<div className="flex h-full w-full flex-wrap items-center justify-center gap-3">
 				{allCategories.map((category) => (
-					<Link href={{ pathname: `/posts/category/${category.title}`, query: { id: category.id } }} key={category.id}>
-						<div className="p-3 bg-background shadow-sm hover:bg-title hover:text-background transition">
+					<Link
+						href={{ pathname: `/posts/category/${category.title}`, query: { id: category.id } }}
+						key={category.id}
+					>
+						<div className="bg-background p-3 shadow-sm transition hover:bg-title hover:text-background">
 							<p className="text-xs">{category.title}</p>
 						</div>
 					</Link>

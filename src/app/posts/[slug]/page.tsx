@@ -40,7 +40,7 @@ export default async function Post({ params }: Readonly<PostProps>) {
 			const codeData = record.codeBlock.value.document.children[0];
 
 			return (
-				<div className="flex w-full justify-between items-start bg-[#282c34]">
+				<div className="flex w-full items-start justify-between bg-[#282c34]">
 					<SyntaxHighlighter language={codeData.language} style={atomOneDark}>
 						{codeData.code}
 					</SyntaxHighlighter>
@@ -56,16 +56,16 @@ export default async function Post({ params }: Readonly<PostProps>) {
 
 	return (
 		<>
-			<div className="flex-2 w-full h-full">
-				<div className="h-full w-full flex justify-center">
-					<div key={post.id} className="w-full h-full p-4 xl:p-8 bg-postBody shadow-md">
-						<h1 className="font-bold text-5xl mb-12 text-center">{post.title}</h1>
+			<div className="h-full w-full flex-2">
+				<div className="flex h-full w-full justify-center">
+					<div key={post.id} className="h-full w-full bg-postBody p-4 shadow-md xl:p-8">
+						<h1 className="mb-12 text-center text-5xl font-bold">{post.title}</h1>
 
-						<p className="text-gray-400 text-sm text-center">
+						<p className="text-center text-sm text-gray-400">
 							Escrito por Bruno Franco | Publicado em {getFormattedDate(post._createdAt)}
 						</p>
 
-						<hr className="w-full h-[1px] border-none border-t-2 bg-gray-700 my-10" />
+						<hr className="my-10 h-[1px] w-full border-t-2 border-none bg-gray-700" />
 
 						<SRCImage data={post.cover.responsiveImage} className="mb-12" />
 
@@ -76,7 +76,7 @@ export default async function Post({ params }: Readonly<PostProps>) {
 				</div>
 			</div>
 
-			<div className="flex-1 w-full h-full flex flex-col gap-10">
+			<div className="flex h-full w-full flex-1 flex-col gap-10">
 				<LatestPostsSideBar allPosts={allPosts} />
 				<CategorySideBar />
 				<SocialMediaSideBar />

@@ -22,26 +22,26 @@ export interface CategoryData {
 
 export default function PostPreview({ post }: Readonly<{ post: PostData }>) {
 	return (
-		<div key={post.slug} className="h-full w-full flex flex-col gap-3">
-			<div className="w-full flex flex-col xl:flex-row justify-between items-center gap-2">
-				<p className="w-full xl:w-96 text-sm text-slate-500">{getFormattedDate(post._createdAt)}</p>
+		<div key={post.slug} className="flex h-full w-full flex-col gap-3">
+			<div className="flex w-full flex-col items-center justify-between gap-2 xl:flex-row">
+				<p className="w-full text-sm text-slate-500 xl:w-96">{getFormattedDate(post._createdAt)}</p>
 
-				<div className="w-full flex justify-start xl:justify-end items-center flex-wrap gap-2">
+				<div className="flex w-full flex-wrap items-center justify-start gap-2 xl:justify-end">
 					{post.categories.map((category) => (
-						<div key={category.id} className="p-1 border border-title rounded-sm">
-							<p className="text-title text-xs">{category.title}</p>
+						<div key={category.id} className="rounded-sm border border-title p-1">
+							<p className="text-xs text-title">{category.title}</p>
 						</div>
 					))}
 				</div>
 			</div>
 
 			<Link href={`/posts/${post.slug}`}>
-				<h2 className="text-title font-bold text-2xl">{post.title}</h2>
+				<h2 className="text-2xl font-bold text-title">{post.title}</h2>
 			</Link>
 
 			<h5 className="text-justify">{post.preview.slice(0, 255)}...</h5>
 
-			<hr className="w-full h-[2px] border-none border-t-2 bg-gray-600 mt-6" />
+			<hr className="mt-6 h-[2px] w-full border-t-2 border-none bg-gray-600" />
 		</div>
 	);
 }

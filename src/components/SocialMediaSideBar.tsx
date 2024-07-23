@@ -12,7 +12,7 @@ export const links = {
 export default function SocialMediaSideBar() {
 	return (
 		<SideBarLayout title="Minhas redes">
-			<div className="w-full flex items-center justify-center gap-6">
+			<div className="flex w-full items-center justify-center gap-6">
 				<Link href={links.linkedIn} target="_blank" title="LinkedIn">
 					<FaLinkedin color="#2cb67d" size="36" />
 				</Link>

@@ -5,7 +5,7 @@ export default function LoadingAnimation() {
 		<>
 			<svg
 				aria-hidden="true"
-				className="w-32 h-32 text-gray-200 animate-spin dark:text-gray-600 fill-title"
+				className="h-32 w-32 animate-spin fill-title text-gray-200 dark:text-gray-600"
 				viewBox="0 0 100 101"
 				fill="none"
 			>

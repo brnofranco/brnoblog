@@ -32,7 +32,9 @@ export async function performRequest({
 			Authorization: `Bearer ${process.env.NEXT_DATOCMS_API_TOKEN}`,
 			...(includeDrafts ? { 'X-Include-Drafts': 'true' } : {}),
 			...(excludeInvalid ? { 'X-Exclude-Invalid': 'true' } : {}),
-			...(visualEditingBaseUrl ? { 'X-Visual-Editing': 'vercel-v1', 'X-Base-Editing-Url': visualEditingBaseUrl } : {}),
+			...(visualEditingBaseUrl
+				? { 'X-Visual-Editing': 'vercel-v1', 'X-Base-Editing-Url': visualEditingBaseUrl }
+				: {}),
 			...(process.env.NEXT_DATOCMS_ENVIRONMENT ? { 'X-Environment': process.env.NEXT_DATOCMS_ENVIRONMENT } : {}),
 		},
 		body: JSON.stringify({ query, variables, revalidate }),

@@ -1,6 +1,6 @@
 'use client';
 
-import LoadingAnimation from '@/components/Loading';
+import LoadingAnimatedIcon from '@/components/LoadingAnimatedIcon';
 
 export default function Loading() {
 	return (
@@ -8,7 +8,7 @@ export default function Loading() {
 			<div className="h-full w-full flex-2">
 				<div className="flex h-full w-full flex-col items-center gap-10">
 					<div className="absolute mt-[-5rem] flex h-screen items-center justify-center">
-						<LoadingAnimation />
+						<LoadingAnimatedIcon />
 					</div>
 
 					<div className="flex h-full w-full flex-col gap-3">

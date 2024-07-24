@@ -1,6 +1,6 @@
 'use client';
 
-export default function LoadingAnimation() {
+export default function LoadingAnimatedIcon() {
 	return (
 		<>
 			<svg

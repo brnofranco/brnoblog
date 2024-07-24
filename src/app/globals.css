@@ -28,3 +28,15 @@ body {
 		text-wrap: balance;
 	}
 }
+
+body::-webkit-scrollbar {
+	width: 0.75rem;
+}
+
+body::-webkit-scrollbar-track {
+	background: #111;
+}
+
+body::-webkit-scrollbar-thumb {
+	background-color: #444;
+}

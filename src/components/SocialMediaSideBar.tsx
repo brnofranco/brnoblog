@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import SideBarLayout from './SideBarLayout';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { MdPortrait } from 'react-icons/md';
+import { GoLink } from 'react-icons/go';
 
 export const links = {
 	linkedIn: 'https://www.linkedin.com/in/brunofmoraes/',
@@ -22,7 +22,7 @@ export default function SocialMediaSideBar() {
 				</Link>
 
 				<Link href={links.portfolio} target="_blank" title="Portfólio">
-					<MdPortrait color="#2cb67d" size="42" />
+					<GoLink color="#2cb67d" size="36" />
 				</Link>
 			</div>
 		</SideBarLayout>

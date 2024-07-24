@@ -1,10 +1,11 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { ReactNode } from 'react';
 import { FaCircleArrowUp } from 'react-icons/fa6';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 import { links } from './SocialMediaSideBar';
-import Image from 'next/image';
 
 export default function PageLayout({ children }: Readonly<{ children: ReactNode }>) {
 	const scrollToTop = () => {
@@ -24,11 +25,15 @@ export default function PageLayout({ children }: Readonly<{ children: ReactNode 
 
 					<div className="flex items-center justify-end gap-10">
 						<Link href="/" className="text-lg text-text">
-							home
+							posts
 						</Link>
 
-						<Link href={links.portfolio} target="_blank" className="text-lg text-text">
-							autor
+						<Link
+							href={links.portfolio}
+							target="_blank"
+							className="flex items-center gap-1 text-lg text-text"
+						>
+							autor <FaExternalLinkAlt size={10} />
 						</Link>
 					</div>
 				</nav>

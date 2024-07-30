@@ -55,7 +55,7 @@ export default function PageLayout({ children }: Readonly<{ children: ReactNode 
 					</div>
 
 					<hr className="h-[2px] w-full border-t-2 border-none bg-gray-500" />
-					<p className="mt-3 text-sm text-gray-600">© 2024 Criado por Bruno Franco</p>
+					<p className="mt-3 text-sm text-gray-400">© 2024 Criado por Bruno Franco</p>
 				</div>
 			</footer>
 		</div>

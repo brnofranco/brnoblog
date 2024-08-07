@@ -24,6 +24,15 @@ const config: Config = {
 				'3': '3 3 0%',
 				'4': '4 4 0%',
 			},
+			minHeight: {
+				page: 'calc(100vh - 14.5rem)',
+			},
+			listStyleType: {
+				circle: 'circle',
+			},
+			fontFamily: {
+				inter: ['Inter', 'sans-serif'],
+			},
 		},
 	},
 	plugins: [],

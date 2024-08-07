@@ -18,25 +18,17 @@
 }
 
 body {
-	color: var(--text);
-	background: var(--background);
-	font-family: Inter, sans-serif;
-}
-
-@layer utilities {
-	.text-balance {
-		text-wrap: balance;
-	}
+	@apply font-inter bg-background text-text;
 }
 
 body::-webkit-scrollbar {
-	width: 0.75rem;
+	@apply w-3;
 }
 
 body::-webkit-scrollbar-track {
-	background: #111;
+	@apply bg-header;
 }
 
 body::-webkit-scrollbar-thumb {
-	background-color: #444;
+	@apply bg-title;
 }

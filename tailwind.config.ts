@@ -27,6 +27,9 @@ const config: Config = {
 			minHeight: {
 				page: 'calc(100vh - 14.5rem)',
 			},
+			listStyleType: {
+				circle: 'circle',
+			},
 		},
 	},
 	plugins: [],

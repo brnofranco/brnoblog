@@ -41,18 +41,14 @@ export default function PageLayout({ children }: Readonly<{ children: ReactNode 
 							posts
 						</Link>
 
-						<Link
-							href={links.portfolio}
-							target="_blank"
-							className="flex items-center gap-1 text-lg text-text"
-						>
-							autor <FaExternalLinkAlt size={10} />
+						<Link href="/about" className="flex items-center gap-1 text-lg text-text">
+							sobre
 						</Link>
 					</div>
 				</nav>
 			</header>
 
-			<div className="min-h-page flex h-full w-full justify-center pb-16 pt-10">
+			<div className="flex h-full min-h-page w-full justify-center pb-16 pt-10">
 				<div className="flex h-full w-11/12 flex-col justify-center gap-10 xl:max-w-[1280px] xl:flex-row">
 					{children}
 				</div>

@@ -30,6 +30,9 @@ const config: Config = {
 			listStyleType: {
 				circle: 'circle',
 			},
+			fontFamily: {
+				inter: ['Inter', 'sans-serif'],
+			},
 		},
 	},
 	plugins: [],

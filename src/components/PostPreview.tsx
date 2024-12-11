@@ -4,6 +4,11 @@ import { getFormattedDate } from '@/shared/dayjs';
 import Link from 'next/link';
 import { ResponsiveImageType, StructuredTextDocument } from 'react-datocms';
 
+export interface PaginatedPostData {
+	allPosts: PostData[];
+	_allPostsMeta: { count: number };
+}
+
 export interface PostData {
 	_createdAt: string;
 	id: string;

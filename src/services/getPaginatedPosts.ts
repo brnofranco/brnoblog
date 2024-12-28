@@ -1,9 +1,9 @@
 import { PaginatedPostData } from '@/components/PostPreview';
 import { performRequest } from '@/lib/datocms';
-
-export const POSTS_PER_PAGE = 5;
+import { config } from '@/shared/config';
 
 export default async function getPaginatedPosts(page: number) {
+	const POSTS_PER_PAGE = config.postsPerPage;
 	const skip = page * POSTS_PER_PAGE;
 
 	const PAGE_CONTENT_QUERY: string = `

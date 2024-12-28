@@ -1,7 +1,6 @@
 import SocialMediaSideBar from '@/components/SocialMediaSideBar';
 import { redirect } from 'next/navigation';
 import LatestPostsSideBar from '@/components/LatestPostsSideBar';
-import getAllPosts from '@/services/getPosts';
 import CategorySideBar from '@/components/CategorySideBar';
 import getPostBySlug from '@/services/getPostBySlug';
 import { RenderBlockContext, ResponsiveImageType, SRCImage, StructuredText } from 'react-datocms';
@@ -9,6 +8,8 @@ import { getFormattedDate } from '@/shared/dayjs';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import CopyButton from '../../../components/CopyButton';
+import getFirstPosts from '@/services/getFirstPosts';
+import { config } from '@/shared/config';
 
 interface Record {
 	id: string;
@@ -29,7 +30,7 @@ export default async function Post({ params }: Readonly<PostProps>) {
 		redirect('/404');
 	}
 
-	const allPosts = await getAllPosts();
+	const allPosts = await getFirstPosts(config.latestPostsQuantity);
 
 	const renderBlock = ({ record }: RenderBlockContext<Record>) => {
 		if (record.__typename === 'ImageBlockRecord') {

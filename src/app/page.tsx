@@ -2,7 +2,8 @@ import Link from 'next/link';
 import SocialMediaSideBar from '../components/SocialMediaSideBar';
 import CategorySideBar from '@/components/CategorySideBar';
 import PostPreview, { PaginatedPostData, PostData } from '@/components/PostPreview';
-import getPaginatedPosts, { POSTS_PER_PAGE } from '@/services/getPaginatedPosts';
+import getPaginatedPosts from '@/services/getPaginatedPosts';
+import { config } from '@/shared/config';
 
 interface HomeProps {
 	searchParams: { page: string };
@@ -13,7 +14,7 @@ export default async function Home({ searchParams }: Readonly<HomeProps>) {
 	const data: PaginatedPostData = await getPaginatedPosts(currentPage);
 	const allPosts = data?.allPosts || [];
 	const totalPosts = data?._allPostsMeta?.count || 0;
-	const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
+	const totalPages = Math.ceil(totalPosts / config.postsPerPage);
 
 	return (
 		<>

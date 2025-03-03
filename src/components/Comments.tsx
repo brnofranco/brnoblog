@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import { config } from '@/shared/config';
 
 export default function Comments() {
-	const commentsSection = useRef(null);
+	const commentsSection = useRef<HTMLDivElement | null>(null);
 
 	useEffect(() => {
 		const script = document.createElement('script');
@@ -14,7 +14,7 @@ export default function Comments() {
 		script.setAttribute('repo', config.utteranc.repo);
 		script.setAttribute('issue-term', config.utteranc.issueTerm);
 		script.setAttribute('theme', config.utteranc.theme);
-		commentsSection.current.appendChild(script);
+		commentsSection.current?.appendChild(script);
 	}, []);
 
 	return <div ref={commentsSection} />;

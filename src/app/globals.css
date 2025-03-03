@@ -20,15 +20,3 @@
 body {
 	@apply font-inter bg-background text-text;
 }
-
-body::-webkit-scrollbar {
-	@apply w-3;
-}
-
-body::-webkit-scrollbar-track {
-	@apply bg-header;
-}
-
-body::-webkit-scrollbar-thumb {
-	@apply bg-title;
-}

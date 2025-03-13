@@ -1,9 +1,11 @@
 import Link from 'next/link';
-import SocialMediaSideBar from '../components/SocialMediaSideBar';
+import SocialMediaSideBar from '../../components/SocialMediaSideBar';
 import CategorySideBar from '@/components/CategorySideBar';
 import PostPreview, { PaginatedPostData, PostData } from '@/components/PostPreview';
 import getPaginatedPosts from '@/services/getPaginatedPosts';
 import { config } from '@/shared/config';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { redirect } from 'next/navigation';
 
 interface HomeProps {
 	searchParams: { page: string };
@@ -11,9 +13,12 @@ interface HomeProps {
 
 export default async function Home({ searchParams }: Readonly<HomeProps>) {
 	const currentPage = parseInt(searchParams?.page || '0');
-	const data: PaginatedPostData = await getPaginatedPosts(currentPage);
-	const allPosts = data?.allPosts || [];
-	const totalPosts = data?._allPostsMeta?.count || 0;
+
+	const { allPosts, _allPostsMeta }: PaginatedPostData = await getPaginatedPosts(currentPage);
+
+	if (!allPosts?.length) redirect('/404');
+
+	const totalPosts = _allPostsMeta?.count || 0;
 	const totalPages = Math.ceil(totalPosts / config.postsPerPage);
 
 	return (
@@ -29,9 +34,9 @@ export default async function Home({ searchParams }: Readonly<HomeProps>) {
 					{currentPage > 0 && (
 						<Link
 							href={`/?page=${currentPage - 1}`}
-							className="flex h-full w-full items-center justify-center gap-3 bg-postBody py-5 text-sm font-semibold shadow-md transition hover:bg-zinc-900"
+							className="flex h-full w-full items-center justify-center gap-2 bg-postBody py-5 text-sm font-semibold shadow-md transition hover:bg-zinc-900"
 						>
-							<span>{'<'}</span>
+							<FaChevronLeft />
 							<span>Anterior</span>
 						</Link>
 					)}
@@ -42,7 +47,7 @@ export default async function Home({ searchParams }: Readonly<HomeProps>) {
 							className="flex h-full w-full items-center justify-center gap-3 bg-postBody py-5 text-sm font-semibold shadow-md transition hover:bg-zinc-900"
 						>
 							<span>Próximo</span>
-							<span>{'>'}</span>
+							<FaChevronRight />
 						</Link>
 					)}
 				</div>

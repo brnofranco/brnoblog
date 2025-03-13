@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
-import './globals.css';
-import PageLayout from '../components/PageLayout';
+import PageLayout from '../../components/PageLayout';
 
 export const metadata: Metadata = {
-	title: 'brnoblog',
+	title: 'brnoblog - 404',
 	description: 'Blog do Bruno Franco',
 };
 

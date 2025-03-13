@@ -1,8 +1,8 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-	title: 'brnoblog - Sobre',
-	description: 'Sobre o blog do Bruno Franco',
+	title: 'brnoblog - Posts',
+	description: 'Blog do Bruno Franco',
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

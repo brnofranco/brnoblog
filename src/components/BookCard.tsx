@@ -6,11 +6,10 @@ interface BookCardProps {
 	image: string;
 	author: string;
 	description: string;
-	amazon: string;
 	post?: string;
 }
 
-export const BookCard = ({ title, image, author, description, amazon, post }: BookCardProps) => {
+export const BookCard = ({ title, image, author, description, post }: BookCardProps) => {
 	return (
 		<div className="flex flex-col rounded-xl bg-postBody lg:flex-row">
 			<Image
@@ -29,12 +28,9 @@ export const BookCard = ({ title, image, author, description, amazon, post }: Bo
 				<p className="mt-4 text-justify">{description}</p>
 
 				<div className="mt-4 flex gap-4">
-					<Link className="text-sky-500 underline" href={amazon}>
-						Amazon
-					</Link>
 					{post && (
-						<Link className="text-sky-500 underline" href={post}>
-							Meu post
+						<Link className="text-sky-500 underline" href={post} target="_blank">
+							Meu post sobre o livro
 						</Link>
 					)}
 				</div>

@@ -34,9 +34,13 @@ export default function PageLayout({ children }: Readonly<{ children: ReactNode 
 						<Image src="/icon.svg" alt="bruno franco icon" width={26} height={26} /> rnoblog
 					</Link>
 
-					<div className="flex items-center justify-end gap-10">
+					<div className="flex items-center justify-end gap-4 lg:gap-10">
 						<Link href="/posts" className="text-lg text-text">
 							posts
+						</Link>
+
+						<Link href="/books" className="text-lg text-text">
+							livros
 						</Link>
 
 						<Link href="/about" className="flex items-center gap-1 text-lg text-text">

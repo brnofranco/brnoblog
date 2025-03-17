@@ -52,7 +52,7 @@ export default function About() {
 					/>
 
 					<div className="flex flex-col items-center gap-4">
-						<div className="flex items-center justify-center gap-3">
+						<div className="flex items-center justify-center gap-1 lg:gap-3">
 							<h3 className="text-xl font-bold">Bruno Franco</h3>
 							{'| |'}
 							<p className="text-xl opacity-50">brnofranco</p>

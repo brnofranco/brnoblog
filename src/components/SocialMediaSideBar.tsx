@@ -1,3 +1,5 @@
+'use static';
+
 import Link from 'next/link';
 import SideBarLayout from './SideBarLayout';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';

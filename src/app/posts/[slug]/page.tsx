@@ -8,8 +8,6 @@ import { getFormattedDate } from '@/shared/dayjs';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import CopyButton from '../../../components/CopyButton';
-import getFirstPosts from '@/services/getFirstPosts';
-import { config } from '@/shared/config';
 import Comments from '@/components/Comments';
 
 interface Record {
@@ -30,8 +28,6 @@ export default async function Post({ params }: Readonly<PostProps>) {
 	if (!post?.title) {
 		redirect('/404');
 	}
-
-	const allPosts = await getFirstPosts(config.latestPostsQuantity);
 
 	const renderBlock = ({ record }: RenderBlockContext<Record>) => {
 		if (record.__typename === 'ImageBlockRecord') {
@@ -81,7 +77,7 @@ export default async function Post({ params }: Readonly<PostProps>) {
 			</div>
 
 			<div className="flex h-full w-full flex-1 flex-col gap-10">
-				<LatestPostsSideBar allPosts={allPosts} />
+				<LatestPostsSideBar />
 				<CategorySideBar />
 				<SocialMediaSideBar />
 			</div>

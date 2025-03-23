@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -19,6 +21,7 @@ export const BookCard = ({ title, image, author, description, post }: BookCardPr
 				height={195}
 				width={140}
 				alt={title}
+				priority
 			/>
 
 			<div className="flex flex-col rounded-b-xl bg-postBody p-5 lg:rounded-l-none lg:rounded-r-xl">

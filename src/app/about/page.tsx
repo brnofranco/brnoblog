@@ -49,6 +49,7 @@ export default function About() {
 						width={280}
 						height={280}
 						className="rounded-full"
+						priority
 					/>
 
 					<div className="flex flex-col items-center gap-4">

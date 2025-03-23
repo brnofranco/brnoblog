@@ -2,12 +2,12 @@ import { getFormattedDate } from '@/shared/dayjs';
 import { PostData } from './PostPreview';
 import SideBarLayout from './SideBarLayout';
 import Link from 'next/link';
+import getFirstPosts from '@/services/getFirstPosts';
+import { config } from '@/shared/config';
 
-interface LatestPostsSideBarProps {
-	allPosts: PostData[];
-}
+export default async function LatestPostsSideBar() {
+	const allPosts = await getFirstPosts(config.latestPostsQuantity);
 
-export default async function LatestPostsSideBar({ allPosts }: Readonly<LatestPostsSideBarProps>) {
 	return (
 		<SideBarLayout title="Últimas publicações">
 			{allPosts.map((post) => {

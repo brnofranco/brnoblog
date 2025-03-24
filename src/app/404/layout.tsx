@@ -1,5 +1,4 @@
-import type { Metadata } from 'next';
-import PageLayout from '../../components/PageLayout';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
 	title: 'brnoblog - 404',
@@ -7,11 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-	return (
-		<html lang="pt-br">
-			<body>
-				<PageLayout>{children}</PageLayout>
-			</body>
-		</html>
-	);
+	return <>{children}</>;
 }

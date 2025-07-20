@@ -13,7 +13,7 @@ export default async function CategorySideBar() {
 						href={{ pathname: `/posts/category/${category.title}`, query: { id: category.id } }}
 						key={category.id}
 					>
-						<div className="bg-background p-3 shadow-sm transition hover:bg-title hover:text-background">
+						<div className="bg-background hover:bg-title hover:text-background p-3 shadow-sm transition">
 							<p className="text-xs">{category.title}</p>
 						</div>
 					</Link>

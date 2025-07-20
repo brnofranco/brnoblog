@@ -18,9 +18,8 @@ export default async function getPostsByCategory(id: string) {
 
 	try {
 		const { allPosts } = await performRequest({ query: PAGE_CONTENT_QUERY, revalidate: 0 });
-
 		return allPosts as PostData[];
-	} catch (error) {
-		return;
+	} catch {
+		return [];
 	}
 }

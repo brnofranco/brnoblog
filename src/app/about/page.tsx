@@ -11,7 +11,7 @@ export default function About() {
 		<>
 			<div className="h-full w-full flex-2">
 				<div className="flex h-full w-full flex-col justify-center gap-12">
-					<div className="flex h-full w-full flex-col gap-6 bg-postBody p-4 shadow-md xl:p-8">
+					<div className="bg-post-body flex h-full w-full flex-col gap-6 p-4 shadow-md xl:p-8">
 						<h2 className="text-3xl font-bold">Autor</h2>
 						<p className="text-justify opacity-85">
 							Estou em contato com o mundo da programação desde 2018 e de lá pra cá percebo que cada vez
@@ -30,7 +30,7 @@ export default function About() {
 						</p>
 					</div>
 
-					<div className="flex h-full w-full flex-col gap-6 bg-postBody p-4 shadow-md xl:p-8">
+					<div className="bg-post-body flex h-full w-full flex-col gap-6 p-4 shadow-md xl:p-8">
 						<h2 className="text-3xl font-bold">Sobre</h2>
 						<p className="text-justify opacity-85">
 							O objetivo deste blog é compartilhar conhecimento de várias áreas. Estou fazendo um backup
@@ -42,7 +42,7 @@ export default function About() {
 			</div>
 
 			<div className="flex h-full w-full flex-1 flex-col gap-10">
-				<aside className="flex h-full w-full flex-col items-center gap-6 bg-postBody p-8 shadow-md">
+				<aside className="bg-post-body flex h-full w-full flex-col items-center gap-6 p-8 shadow-md">
 					<Image
 						src="https://github.com/brnofranco.png"
 						alt="Foto do Bruno"

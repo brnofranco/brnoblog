@@ -19,11 +19,12 @@ interface Record {
 }
 
 interface PostProps {
-	params: { slug: string };
+	params: Promise<{ slug: string }>;
 }
 
 export default async function Post({ params }: Readonly<PostProps>) {
-	const post = await getPostBySlug(params.slug);
+	const searchParams = await params;
+	const post = await getPostBySlug(searchParams.slug);
 
 	if (!post?.title) {
 		redirect('/404');
@@ -56,7 +57,7 @@ export default async function Post({ params }: Readonly<PostProps>) {
 		<>
 			<div className="h-full w-full flex-2">
 				<div className="flex h-full w-full justify-center">
-					<div key={post.id} className="h-full w-full bg-postBody p-4 shadow-md xl:p-8">
+					<div key={post.id} className="bg-post-body h-full w-full p-4 shadow-md xl:p-8">
 						<h1 className="mb-12 text-center text-4xl font-bold">{post.title}</h1>
 
 						<p className="text-center text-sm text-gray-400">
@@ -65,7 +66,7 @@ export default async function Post({ params }: Readonly<PostProps>) {
 
 						<hr className="my-10 h-[1px] w-full border-t-2 border-none bg-gray-700" />
 
-						<SRCImage data={post.cover.responsiveImage} className="mb-12" />
+						<SRCImage data={post.cover.responsiveImage} imgClassName="mb-12" />
 
 						<div className="structured-data">
 							<StructuredText data={post.content} renderBlock={renderBlock} />

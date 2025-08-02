@@ -13,7 +13,7 @@ interface BookCardProps {
 
 export const BookCard = ({ title, image, author, description, post }: BookCardProps) => {
 	return (
-		<div className="flex flex-col rounded-xl bg-postBody lg:flex-row">
+		<div className="bg-post-body flex flex-col rounded-xl lg:flex-row">
 			<Image
 				className="mb-[-170px] rounded-t-xl lg:mb-0 lg:rounded-l-xl lg:rounded-r-none"
 				style={{ width: 'auto', height: 'auto' }}
@@ -24,8 +24,8 @@ export const BookCard = ({ title, image, author, description, post }: BookCardPr
 				priority
 			/>
 
-			<div className="flex flex-col rounded-b-xl bg-postBody p-5 lg:rounded-l-none lg:rounded-r-xl">
-				<h3 className="text-2xl font-bold text-title">{title}</h3>
+			<div className="bg-post-body flex flex-col rounded-b-xl p-5 lg:rounded-l-none lg:rounded-r-xl">
+				<h3 className="text-title text-2xl font-bold">{title}</h3>
 				<p className="text-sm opacity-60">{author}</p>
 
 				<p className="mt-4 text-justify">{description}</p>

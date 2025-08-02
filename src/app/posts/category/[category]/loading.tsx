@@ -20,7 +20,7 @@ export default function Loading() {
 							<p className="w-full rounded-lg bg-slate-500 p-2 opacity-25 xl:w-64"></p>
 							<div className="w-full rounded-lg bg-slate-500 p-2 opacity-25"></div>
 						</div>
-						<div className="rounded-lg bg-title p-2 opacity-25"></div>
+						<div className="bg-title rounded-lg p-2 opacity-25"></div>
 						<div className="rounded-lg bg-slate-500 p-12 opacity-25"></div>
 						<hr className="mt-6 h-[2px] w-full border-t-2 border-none bg-gray-600" />
 					</div>
@@ -30,7 +30,7 @@ export default function Loading() {
 							<p className="w-full rounded-lg bg-slate-500 p-2 opacity-25 xl:w-64"></p>
 							<div className="w-full rounded-lg bg-slate-500 p-2 opacity-25"></div>
 						</div>
-						<div className="rounded-lg bg-title p-2 opacity-25"></div>
+						<div className="bg-title rounded-lg p-2 opacity-25"></div>
 						<div className="rounded-lg bg-slate-500 p-12 opacity-25"></div>
 						<hr className="mt-6 h-[2px] w-full border-t-2 border-none bg-gray-600" />
 					</div>
@@ -40,7 +40,7 @@ export default function Loading() {
 							<p className="w-full rounded-lg bg-slate-500 p-2 opacity-25 xl:w-64"></p>
 							<div className="w-full rounded-lg bg-slate-500 p-2 opacity-25"></div>
 						</div>
-						<div className="rounded-lg bg-title p-2 opacity-25"></div>
+						<div className="bg-title rounded-lg p-2 opacity-25"></div>
 						<div className="rounded-lg bg-slate-500 p-12 opacity-25"></div>
 						<hr className="mt-6 h-[2px] w-full border-t-2 border-none bg-gray-600" />
 					</div>
@@ -48,10 +48,10 @@ export default function Loading() {
 			</div>
 
 			<div className="flex h-full w-full flex-1 flex-col gap-10">
-				<div className="w-full bg-postBody p-16 opacity-50"></div>
-				<div className="w-full bg-postBody p-16 opacity-50"></div>
-				<div className="w-full bg-postBody p-16 opacity-50"></div>
-				<div className="w-full bg-postBody p-16 opacity-50"></div>
+				<div className="bg-post-body w-full p-16 opacity-50"></div>
+				<div className="bg-post-body w-full p-16 opacity-50"></div>
+				<div className="bg-post-body w-full p-16 opacity-50"></div>
+				<div className="bg-post-body w-full p-16 opacity-50"></div>
 			</div>
 		</>
 	);

@@ -5,17 +5,19 @@ import getPostsByCategory from '@/services/getPostsByCategory';
 import PostPreview, { PostData } from '@/components/PostPreview';
 
 interface CategoryProps {
-	params: { category: string };
-	searchParams: { id: string };
+	params: Promise<{ category: string }>;
+	searchParams: Promise<{ id: string }>;
 }
 
 export default async function Category({ params, searchParams }: Readonly<CategoryProps>) {
-	if (!searchParams?.id) {
+	const { id } = await searchParams;
+	if (!id) {
 		redirect('/404');
 	}
 
-	const categoryTitle = params.category.replaceAll('%20', ' ');
-	const allPosts = await getPostsByCategory(searchParams.id);
+	const { category } = await params;
+	const categoryTitle = category.replaceAll('%20', ' ');
+	const allPosts = await getPostsByCategory(id);
 
 	if (!allPosts) {
 		redirect('/404');
@@ -27,13 +29,13 @@ export default async function Category({ params, searchParams }: Readonly<Catego
 				<h1 className="mb-8 text-3xl font-bold">Posts sobre {categoryTitle}:</h1>
 
 				<div className="flex h-full w-full flex-col items-center gap-10">
-					{allPosts.length > 0 ? (
-						allPosts.map((post: PostData) => {
-							return <PostPreview key={post.slug} post={post} />;
-						})
+					{allPosts.length ? (
+						allPosts.map((post: PostData, index) => (
+							<PostPreview key={post.slug} post={post} isLast={allPosts.length === index + 1} />
+						))
 					) : (
 						<div>
-							<h1>Não há nenhum post nesta categoria!</h1>
+							<h2>Não há nenhum post nesta categoria!</h2>
 						</div>
 					)}
 				</div>

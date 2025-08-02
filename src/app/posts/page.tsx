@@ -8,11 +8,12 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { redirect } from 'next/navigation';
 
 interface HomeProps {
-	searchParams: { page: string };
+	searchParams: Promise<{ page: string }>;
 }
 
 export default async function Home({ searchParams }: Readonly<HomeProps>) {
-	const currentPage = parseInt(searchParams?.page || '0');
+	const { page } = await searchParams;
+	const currentPage = parseInt(page || '0');
 
 	const { allPosts, _allPostsMeta }: PaginatedPostData = await getPaginatedPosts(currentPage);
 
@@ -25,16 +26,16 @@ export default async function Home({ searchParams }: Readonly<HomeProps>) {
 		<>
 			<div className="h-full w-full flex-2">
 				<div className="flex h-full w-full flex-col items-center gap-10">
-					{allPosts.map((post: PostData) => {
-						return <PostPreview key={post.slug} post={post} />;
-					})}
+					{allPosts.map((post: PostData, index) => (
+						<PostPreview key={post.slug} post={post} isLast={allPosts.length === index + 1} />
+					))}
 				</div>
 
 				<div className="mt-6 flex h-full w-full items-center">
 					{currentPage > 0 && (
 						<Link
 							href={`/?page=${currentPage - 1}`}
-							className="flex h-full w-full items-center justify-center gap-2 bg-postBody py-5 text-sm font-semibold shadow-md transition hover:bg-zinc-900"
+							className="bg-post-body flex h-full w-full items-center justify-center gap-2 py-5 text-sm font-semibold shadow-md transition hover:bg-zinc-900"
 						>
 							<FaChevronLeft />
 							<span>Anterior</span>
@@ -44,7 +45,7 @@ export default async function Home({ searchParams }: Readonly<HomeProps>) {
 					{currentPage < totalPages - 1 && (
 						<Link
 							href={`/?page=${currentPage + 1}`}
-							className="flex h-full w-full items-center justify-center gap-3 bg-postBody py-5 text-sm font-semibold shadow-md transition hover:bg-zinc-900"
+							className="bg-post-body flex h-full w-full items-center justify-center gap-3 py-5 text-sm font-semibold shadow-md transition hover:bg-zinc-900"
 						>
 							<span>Próximo</span>
 							<FaChevronRight />

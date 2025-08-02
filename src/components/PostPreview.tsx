@@ -25,7 +25,7 @@ export interface CategoryData {
 	id: string;
 }
 
-export default function PostPreview({ post }: Readonly<{ post: PostData }>) {
+export default function PostPreview({ post, isLast = false }: Readonly<{ post: PostData; isLast?: boolean }>) {
 	return (
 		<div key={post.slug} className="flex h-full w-full flex-col gap-3">
 			<div className="flex w-full flex-col items-center justify-between gap-2 xl:flex-row">
@@ -33,20 +33,20 @@ export default function PostPreview({ post }: Readonly<{ post: PostData }>) {
 
 				<div className="flex w-full flex-wrap items-center justify-start gap-2 xl:justify-end">
 					{post.categories.map((category) => (
-						<div key={category.id} className="rounded-sm border border-title p-1">
-							<p className="text-xs text-title">{category.title}</p>
+						<div key={category.id} className="border-title rounded-sm border p-1">
+							<p className="text-title text-xs">{category.title}</p>
 						</div>
 					))}
 				</div>
 			</div>
 
 			<Link href={`/posts/${post.slug}`}>
-				<h2 className="text-2xl font-bold text-title">{post.title}</h2>
+				<h2 className="text-title text-2xl font-bold">{post.title}</h2>
 			</Link>
 
-			<p className="text-justify">{post.preview.slice(0, 255)}...</p>
+			<p className="mb-6 text-justify">{post.preview.slice(0, 255)}...</p>
 
-			<hr className="mt-6 h-[2px] w-full border-t-2 border-none bg-gray-600" />
+			{!isLast ? <hr className="h-[2px] w-full border-t-2 border-none bg-gray-600" /> : null}
 		</div>
 	);
 }

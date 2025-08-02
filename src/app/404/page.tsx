@@ -7,7 +7,7 @@ export default function Home() {
 		<div className="mt-32 flex h-full w-full flex-col items-center justify-center gap-4">
 			<h1 className="text-center text-5xl font-bold">Página não encontrada!</h1>
 			<Link href="/posts">
-				<p className="text-xl text-title underline">Voltar para Home</p>
+				<p className="text-title text-xl underline">Voltar para Home</p>
 			</Link>
 		</div>
 	);

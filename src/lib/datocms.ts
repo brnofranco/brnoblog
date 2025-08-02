@@ -3,7 +3,7 @@ import { cache } from 'react';
 export interface RequestData {
 	query: string;
 	revalidate?: number;
-	variables?: {};
+	variables?: object;
 	includeDrafts?: boolean;
 	excludeInvalid?: boolean;
 	visualEditingBaseUrl?: string;

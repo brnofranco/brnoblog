@@ -53,7 +53,7 @@ export default function Books() {
 	return (
 		<>
 			<div className="flex h-full w-full flex-1 flex-col gap-10">
-				<aside className="flex h-full w-full flex-col gap-6 bg-postBody p-8 shadow-md">
+				<aside className="bg-post-body flex h-full w-full flex-col gap-6 p-8 shadow-md">
 					<h2 className="text-center text-3xl font-bold">Livros</h2>
 					<p className="text-justify">
 						Esses são os livros que li sobre programação e as minhas mais humildes recomendações.

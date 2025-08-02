@@ -1,35 +1,44 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 .structured-data {
-	@apply flex flex-col gap-5;
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem; 
 }
 
 .structured-data h2 {
-	@apply mt-7 text-3xl font-bold;
+	margin-top: 1.75rem;
+	font-size: 1.875rem; 
+	line-height: 2.25rem;
+	font-weight: 700; 
 }
 
 .structured-data h3 {
-	@apply mt-5 text-2xl font-semibold;
+	margin-top: 1.25rem; 
+	font-size: 1.5rem; 
+	line-height: 2rem;
+	font-weight: 600; 
 }
 
 .structured-data p {
-	@apply text-justify opacity-85;
+	text-align: justify;
+	opacity: 0.85;
 }
 
 .structured-data a {
-	@apply text-title underline;
+	color: var(--title); 
+	text-decoration: underline;
 }
 
 .structured-data ul li ul {
-	@apply list-circle list-inside pl-6;
+	list-style-type: circle;
+	list-style-position: inside;
+	padding-left: 1.5rem; 
 }
 
 .structured-data ul {
-	@apply list-inside list-disc;
+	list-style-position: inside;
+	list-style-type: disc;
 }
 
 .structured-data ul li p {
-	@apply inline;
+	display: inline;
 }

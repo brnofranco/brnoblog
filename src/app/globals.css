@@ -1,22 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
 	--title: #2cb67d;
 	--text: #c9d3e7;
 	--background: #2a2d34;
+	--header: #101010;
+	--post-body: #232427;
+	--flex-2: 2 2 0%;
+	--flex-3: 3 3 0%;
+	--flex-4: 4 4 0%;
+	--footer-page: calc(100vh - 14.5rem);
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--title: #2cb67d;
-		--text: #c9d3e7;
-		--background: #2a2d34;
+@theme inline {
+	--color-title: var(--title);
+	--color-text: var(--text);
+	--color-background: var(--background);
+	--color-header: var(--header);
+	--color-post-body: var(--post-body);
+}
+
+@layer utilities {
+	.flex-2 {
+		flex: var(--flex-2);
+	}
+
+	.flex-3 {
+		flex: var(--flex-3);
+	}
+
+	.flex-4 {
+		flex: var(--flex-4);
+	}
+
+	.min-h-footer-page {
+		min-height: var(--footer-page);
 	}
 }
 
 body {
-	@apply font-inter bg-background text-text;
+	background: var(--background);
+  color: var(--text);
 }

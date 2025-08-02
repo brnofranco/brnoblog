@@ -11,7 +11,7 @@ export default function Loading() {
 						<LoadingAnimatedIcon />
 					</div>
 
-					<div className="h-full w-full bg-postBody p-4 opacity-50 xl:p-8">
+					<div className="bg-post-body h-full w-full p-4 opacity-50 xl:p-8">
 						<div className="mb-12 rounded-lg bg-slate-500 p-6 text-center text-3xl font-bold opacity-25"></div>
 						<div className="rounded-lg bg-slate-500 p-2 text-center text-sm text-gray-400 opacity-25"></div>
 						<hr className="my-10 h-[1px] w-full border-t-2 border-none bg-gray-700" />
@@ -21,10 +21,10 @@ export default function Loading() {
 			</div>
 
 			<div className="flex h-full w-full flex-1 flex-col gap-10">
-				<div className="w-full bg-postBody p-16 opacity-50"></div>
-				<div className="w-full bg-postBody p-16 opacity-50"></div>
-				<div className="w-full bg-postBody p-16 opacity-50"></div>
-				<div className="w-full bg-postBody p-16 opacity-50"></div>
+				<div className="bg-post-body w-full p-16 opacity-50"></div>
+				<div className="bg-post-body w-full p-16 opacity-50"></div>
+				<div className="bg-post-body w-full p-16 opacity-50"></div>
+				<div className="bg-post-body w-full p-16 opacity-50"></div>
 			</div>
 		</>
 	);

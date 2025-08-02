@@ -1,17 +1,14 @@
 'use static';
 
-import { links } from '@/components/SocialMediaSideBar';
+import SocialMediaLinks from '@/components/SocialMediaLinks';
 import Image from 'next/image';
-import Link from 'next/link';
-import { FaGithub, FaLinkedin } from 'react-icons/fa6';
-import { GoLink } from 'react-icons/go';
 
 export default function About() {
 	return (
 		<>
 			<div className="h-full w-full flex-2">
 				<div className="flex h-full w-full flex-col justify-center gap-12">
-					<div className="flex h-full w-full flex-col gap-6 bg-postBody p-4 shadow-md xl:p-8">
+					<div className="bg-post-body flex h-full w-full flex-col gap-6 p-4 shadow-md xl:p-8">
 						<h2 className="text-3xl font-bold">Autor</h2>
 						<p className="text-justify opacity-85">
 							Estou em contato com o mundo da programação desde 2018 e de lá pra cá percebo que cada vez
@@ -19,8 +16,10 @@ export default function About() {
 						</p>
 						<p className="text-justify opacity-85">
 							Sou desenvolvedor Full Stack Pleno com experiência em projetos corporativos de grande
-							escala. Tenho formação técnica em Informática para Internet pela ETEC Vasco Antônio
-							Venchiarutti e graduação em Análise e Desenvolvimento de Sistemas pela FATEC Jundiaí.
+							escala. Possuo formação técnica em Informática para Internet pela ETEC Vasco Antônio
+							Venchiarutti e sou graduado em Análise e Desenvolvimento de Sistemas pela FATEC Jundiaí.
+							Atualmente, estou cursando MBA em Arquitetura Full Cycle (Arquitetura de Software e DevOps)
+							pela Faculdade Full Cycle de Tecnologia.
 						</p>
 						<p className="text-justify opacity-85">
 							Já trabalhei com Front-end utilizando React.js e Next.js, e Back-end com Node.js e Java.
@@ -30,19 +29,20 @@ export default function About() {
 						</p>
 					</div>
 
-					<div className="flex h-full w-full flex-col gap-6 bg-postBody p-4 shadow-md xl:p-8">
+					<div className="bg-post-body flex h-full w-full flex-col gap-6 p-4 shadow-md xl:p-8">
 						<h2 className="text-3xl font-bold">Sobre</h2>
 						<p className="text-justify opacity-85">
-							O objetivo deste blog é compartilhar conhecimento de várias áreas. Estou fazendo um backup
-							escrito de alguns de meus estudos e pensamentos destes últimos meses. Ao longo que vou
-							postando novos conteúdos irei melhorando o blog.
+							O objetivo deste blog é compartilhar conhecimento sobre diversos temas relacionados a
+							tecnologia. Aqui, faço um registro dos meus estudos e reflexões recentes, criando um acervo
+							pessoal e aberto para quem quiser aprender junto. Conforme eu for publicando novos
+							conteúdos, continuarei melhorando o blog.
 						</p>
 					</div>
 				</div>
 			</div>
 
 			<div className="flex h-full w-full flex-1 flex-col gap-10">
-				<aside className="flex h-full w-full flex-col items-center gap-6 bg-postBody p-8 shadow-md">
+				<aside className="bg-post-body flex h-full w-full flex-col items-center gap-6 p-8 shadow-md">
 					<Image
 						src="https://github.com/brnofranco.png"
 						alt="Foto do Bruno"
@@ -61,19 +61,7 @@ export default function About() {
 						<hr className="h-[1px] w-20 border-t-2 border-none bg-gray-500" />
 					</div>
 
-					<div className="flex w-full items-center justify-center gap-6">
-						<Link href={links.linkedIn} target="_blank" title="LinkedIn">
-							<FaLinkedin color="#2cb67d" size="36" />
-						</Link>
-
-						<Link href={links.gitHub} target="_blank" title="GitHub">
-							<FaGithub color="#2cb67d" size="36" />
-						</Link>
-
-						<Link href={links.portfolio} target="_blank" title="Portfólio">
-							<GoLink color="#2cb67d" size="36" />
-						</Link>
-					</div>
+					<SocialMediaLinks />
 				</aside>
 			</div>
 		</>

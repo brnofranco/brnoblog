@@ -1,5 +1,4 @@
 import { getFormattedDate } from '@/shared/dayjs';
-import { PostData } from './PostPreview';
 import SideBarLayout from './SideBarLayout';
 import Link from 'next/link';
 import getFirstPosts from '@/services/getFirstPosts';

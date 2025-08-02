@@ -26,9 +26,9 @@ export default async function Home({ searchParams }: Readonly<HomeProps>) {
 		<>
 			<div className="h-full w-full flex-2">
 				<div className="flex h-full w-full flex-col items-center gap-10">
-					{allPosts.map((post: PostData) => {
-						return <PostPreview key={post.slug} post={post} />;
-					})}
+					{allPosts.map((post: PostData, index) => (
+						<PostPreview key={post.slug} post={post} isLast={allPosts.length === index + 1} />
+					))}
 				</div>
 
 				<div className="mt-6 flex h-full w-full items-center">

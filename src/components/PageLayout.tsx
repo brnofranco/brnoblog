@@ -61,7 +61,7 @@ export default function PageLayout({ children }: Readonly<{ children: ReactNode 
 					<div className="flex w-full items-start justify-between">
 						<p className="mb-8 text-xl font-bold">brnoblog</p>
 						{showScrollToTopButton && (
-							<button onClick={scrollToTop}>
+							<button onClick={scrollToTop} className="cursor-pointer">
 								<FaCircleArrowUp color="#c9d3e7" size={32} title="Voltar ao topo" />
 							</button>
 						)}

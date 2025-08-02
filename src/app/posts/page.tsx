@@ -12,8 +12,8 @@ interface HomeProps {
 }
 
 export default async function Home({ searchParams }: Readonly<HomeProps>) {
-	const params = await searchParams;
-	const currentPage = parseInt(params?.page || '0');
+	const { page } = await searchParams;
+	const currentPage = parseInt(page || '0');
 
 	const { allPosts, _allPostsMeta }: PaginatedPostData = await getPaginatedPosts(currentPage);
 

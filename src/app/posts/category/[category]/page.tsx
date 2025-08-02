@@ -5,17 +5,19 @@ import getPostsByCategory from '@/services/getPostsByCategory';
 import PostPreview, { PostData } from '@/components/PostPreview';
 
 interface CategoryProps {
-	params: { category: string };
-	searchParams: { id: string };
+	params: Promise<{ category: string }>;
+	searchParams: Promise<{ id: string }>;
 }
 
 export default async function Category({ params, searchParams }: Readonly<CategoryProps>) {
-	if (!searchParams?.id) {
+	const { id } = await searchParams;
+	if (!id) {
 		redirect('/404');
 	}
 
-	const categoryTitle = params.category.replaceAll('%20', ' ');
-	const allPosts = await getPostsByCategory(searchParams.id);
+	const { category } = await params;
+	const categoryTitle = category.replaceAll('%20', ' ');
+	const allPosts = await getPostsByCategory(id);
 
 	if (!allPosts) {
 		redirect('/404');

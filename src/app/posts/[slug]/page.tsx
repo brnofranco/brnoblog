@@ -23,8 +23,8 @@ interface PostProps {
 }
 
 export default async function Post({ params }: Readonly<PostProps>) {
-	const searchParams = await params;
-	const post = await getPostBySlug(searchParams.slug);
+	const { slug } = await params;
+	const post = await getPostBySlug(slug);
 
 	if (!post?.title) {
 		redirect('/404');

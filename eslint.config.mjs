@@ -7,6 +7,7 @@ const __dirname = dirname(__filename);
 
 const compat = new FlatCompat({
 	baseDirectory: __dirname,
+	ignorePatterns: ['node_modules', '.next', 'out', 'dist', 'build'],
 });
 
 const eslintConfig = [...compat.extends('next/core-web-vitals', 'next/typescript')];

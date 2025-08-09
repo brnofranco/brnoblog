@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ReactNode, useEffect, useState } from 'react';
-import { FaCircleArrowUp } from 'react-icons/fa6';
+import { FaArrowUp } from 'react-icons/fa';
 
 export default function PageLayout({ children }: Readonly<{ children: ReactNode }>) {
 	const [showScrollToTopButton, setShowScrollToTopButton] = useState(false);
@@ -56,19 +56,21 @@ export default function PageLayout({ children }: Readonly<{ children: ReactNode 
 				</div>
 			</div>
 
-			<footer className="bg-header flex h-[10rem] w-full items-center justify-center py-8 shadow-lg">
-				<div className="flex h-full w-4/5 flex-col xl:w-4/6">
+			<footer className="bg-header flex h-[10rem] w-full items-center justify-center shadow-lg">
+				<div className="flex h-full w-4/5 flex-col items-center justify-center xl:w-4/6">
 					<div className="flex w-full items-start justify-between">
 						<p className="mb-8 text-xl font-bold">brnoblog</p>
 						{showScrollToTopButton && (
-							<button onClick={scrollToTop} className="cursor-pointer">
-								<FaCircleArrowUp color="#c9d3e7" size={32} title="Voltar ao topo" />
+							<button onClick={scrollToTop} className="bg-background cursor-pointer p-2">
+								<FaArrowUp className="text-gray-500" size={20} title="Voltar ao topo" />
 							</button>
 						)}
 					</div>
 
-					<hr className="h-[2px] w-full border-t-2 border-none bg-gray-500" />
-					<p className="mt-3 text-sm text-gray-400">© 2025 Criado por Bruno Franco</p>
+					<hr className="h-[1px] w-full border-t-2 border-none bg-gray-500" />
+					<div className="mt-3 flex w-full items-start justify-between text-sm text-gray-500">
+						<p>© 2025 Criado por Bruno Franco</p>
+					</div>
 				</div>
 			</footer>
 		</div>

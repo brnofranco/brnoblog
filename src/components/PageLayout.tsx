@@ -4,9 +4,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ReactNode, useEffect, useState } from 'react';
 import { FaArrowUp } from 'react-icons/fa';
+import { usePathname } from 'next/navigation';
 
 export default function PageLayout({ children }: Readonly<{ children: ReactNode }>) {
 	const [showScrollToTopButton, setShowScrollToTopButton] = useState(false);
+
+	const pathname = usePathname();
+	const basePath = pathname.split('/')[1];
 
 	const toggleShowScrollToTopButtonVisibility = () =>
 		window.scrollY > 250 ? setShowScrollToTopButton(true) : setShowScrollToTopButton(false);
@@ -35,15 +39,18 @@ export default function PageLayout({ children }: Readonly<{ children: ReactNode 
 					</Link>
 
 					<div className="flex items-center justify-end gap-4 lg:gap-10">
-						<Link href="/posts" className="text-text text-lg">
+						<Link href="/posts" className={`text-text text-lg ${basePath === 'posts' && 'font-bold'}`}>
 							posts
 						</Link>
 
-						<Link href="/books" className="text-text text-lg">
+						<Link href="/books" className={`text-text text-lg ${basePath === 'books' && 'font-bold'}`}>
 							livros
 						</Link>
 
-						<Link href="/about" className="text-text flex items-center gap-1 text-lg">
+						<Link
+							href="/about"
+							className={`text-text flex items-center gap-1 text-lg ${basePath === 'about' && 'font-bold'}`}
+						>
 							sobre
 						</Link>
 					</div>

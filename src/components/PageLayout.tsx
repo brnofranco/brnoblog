@@ -62,7 +62,7 @@ export default function PageLayout({ children }: Readonly<{ children: ReactNode 
 						<p className="mb-8 text-xl font-bold">brnoblog</p>
 						{showScrollToTopButton && (
 							<button onClick={scrollToTop} className="bg-background cursor-pointer p-2">
-								<FaArrowUp className="text-gray-500" size={20} title="Voltar ao topo" />
+								<FaArrowUp className="text-text" size={16} title="Voltar ao topo" />
 							</button>
 						)}
 					</div>

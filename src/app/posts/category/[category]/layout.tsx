@@ -2,7 +2,7 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
 	const { category } = await params;
 
 	return {
-		title: `Posts sobre ${category.replaceAll('%20', ' ')}`,
+		title: `Posts sobre ${decodeURIComponent(category)}`,
 		description: 'Blog do Bruno Franco',
 	};
 }

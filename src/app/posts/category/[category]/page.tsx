@@ -16,7 +16,7 @@ export default async function Category({ params, searchParams }: Readonly<Catego
 	}
 
 	const { category } = await params;
-	const categoryTitle = category.replaceAll('%20', ' ');
+	const categoryTitle = decodeURIComponent(category);
 	const allPosts = await getPostsByCategory(id);
 
 	if (!allPosts) {

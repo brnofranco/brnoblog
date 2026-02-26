@@ -3,10 +3,26 @@ import SocialMediaSideBar from '@/components/SocialMediaSideBar';
 import { redirect } from 'next/navigation';
 import getPostsByCategory from '@/services/getPostsByCategory';
 import PostPreview, { PostData } from '@/components/PostPreview';
+import type { Metadata } from 'next';
 
 interface CategoryProps {
 	params: Promise<{ category: string }>;
 	searchParams: Promise<{ id: string }>;
+}
+
+export async function generateMetadata({ params }: CategoryProps): Promise<Metadata> {
+	const { category } = await params;
+	const categoryTitle = decodeURIComponent(category);
+
+	return {
+		title: `Posts sobre ${categoryTitle}`,
+		description: `Confira todos os posts sobre ${categoryTitle} no brnoblog.`,
+		openGraph: {
+			title: `Posts sobre ${categoryTitle} | brnoblog`,
+			description: `Confira todos os posts sobre ${categoryTitle} no brnoblog.`,
+			type: 'website',
+		},
+	};
 }
 
 export default async function Category({ params, searchParams }: Readonly<CategoryProps>) {

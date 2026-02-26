@@ -6,6 +6,17 @@ import getPaginatedPosts from '@/services/getPaginatedPosts';
 import { config } from '@/shared/config';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { redirect } from 'next/navigation';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+	title: 'Posts',
+	description: 'Todos os posts do brnoblog sobre desenvolvimento de software, tecnologia e programação.',
+	openGraph: {
+		title: 'Posts | brnoblog',
+		description: 'Todos os posts do brnoblog sobre desenvolvimento de software, tecnologia e programação.',
+		type: 'website',
+	},
+};
 
 interface HomeProps {
 	searchParams: Promise<{ page: string }>;

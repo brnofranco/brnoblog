@@ -9,6 +9,8 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import CopyButton from '../../../components/CopyButton';
 import Comments from '@/components/Comments';
+import type { Metadata } from 'next';
+import getAllPostSlugs, { PostSlugData } from '@/services/getAllPostSlugs';
 
 interface Record {
 	id: string;
@@ -20,6 +22,48 @@ interface Record {
 
 interface PostProps {
 	params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+	const posts = await getAllPostSlugs();
+	return posts.map((post: PostSlugData) => ({ slug: post.slug }));
+}
+
+export async function generateMetadata({ params }: PostProps): Promise<Metadata> {
+	const { slug } = await params;
+	const post = await getPostBySlug(slug);
+
+	if (!post?.title) return {};
+
+	const description = post.preview?.slice(0, 160);
+	const coverImage = post.cover?.responsiveImage;
+
+	return {
+		title: post.title,
+		description,
+		openGraph: {
+			title: post.title,
+			description,
+			type: 'article',
+			publishedTime: post._createdAt,
+			...(coverImage?.src && {
+				images: [
+					{
+						url: coverImage.src as string,
+						width: coverImage.width,
+						height: coverImage.height ?? undefined,
+						alt: coverImage.alt || post.title,
+					},
+				],
+			}),
+		},
+		twitter: {
+			card: 'summary_large_image',
+			title: post.title,
+			description,
+			...(coverImage?.src && { images: [coverImage.src as string] }),
+		},
+	};
 }
 
 export default async function Post({ params }: Readonly<PostProps>) {

@@ -8,6 +8,8 @@ import { usePathname } from 'next/navigation';
 
 export default function PageLayout({ children }: Readonly<{ children: ReactNode }>) {
 	const [showScrollToTopButton, setShowScrollToTopButton] = useState(false);
+	const today = new Date();
+	const currentYear = today.getFullYear();
 
 	const pathname = usePathname();
 	const basePath = pathname.split('/')[1];
@@ -76,7 +78,7 @@ export default function PageLayout({ children }: Readonly<{ children: ReactNode 
 
 					<hr className="h-[1px] w-full border-t-2 border-none bg-gray-500" />
 					<div className="mt-3 flex w-full items-start justify-between text-sm text-gray-500">
-						<p>© 2025 Criado por Bruno Franco</p>
+						<p>© {currentYear} Criado por Bruno Franco</p>
 					</div>
 				</div>
 			</footer>

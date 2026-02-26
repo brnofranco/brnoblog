@@ -1,4 +1,7 @@
 export const config = {
+	siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://brnoblog.vercel.app',
+	siteTitle: 'brnoblog',
+	siteDescription: 'Blog do Bruno Franco sobre desenvolvimento de software, tecnologia e programação.',
 	postsPerPage: parseInt(process.env.POSTS_PER_PAGE || '5'),
 	latestPostsQuantity: parseInt(process.env.LATEST_POSTS_QUANTITY || '3'),
 	socialMediaLinks: {

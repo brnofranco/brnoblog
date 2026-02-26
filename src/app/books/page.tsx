@@ -1,5 +1,16 @@
+import type { Metadata } from 'next';
 import { BookCard } from '@/components/BookCard';
 import getBooks from '@/services/getBooks';
+
+export const metadata: Metadata = {
+	title: 'Livros',
+	description: 'Lista de livros de programação lidos e recomendados por Bruno Franco.',
+	openGraph: {
+		title: 'Livros | brnoblog',
+		description: 'Lista de livros de programação lidos e recomendados por Bruno Franco.',
+		type: 'website',
+	},
+};
 
 export default async function Books() {
 	const books = await getBooks();

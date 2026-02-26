@@ -2,10 +2,45 @@ import type { Metadata } from 'next';
 import './globals.css';
 import PageLayout from '../components/PageLayout';
 import { Inter } from 'next/font/google';
+import { config } from '@/shared/config';
 
 export const metadata: Metadata = {
-	title: 'brnoblog',
-	description: 'Blog do Bruno Franco',
+	metadataBase: new URL(config.siteUrl),
+	title: {
+		default: config.siteTitle,
+		template: `%s | ${config.siteTitle}`,
+	},
+	description: config.siteDescription,
+	keywords: [
+		'programação',
+		'desenvolvimento',
+		'software',
+		'tecnologia',
+		'JavaScript',
+		'TypeScript',
+		'React',
+		'Next.js',
+		'Node.js',
+	],
+	authors: [{ name: 'Bruno Franco', url: config.socialMediaLinks.portfolio }],
+	creator: 'Bruno Franco',
+	openGraph: {
+		type: 'website',
+		locale: 'pt_BR',
+		url: config.siteUrl,
+		siteName: config.siteTitle,
+		title: config.siteTitle,
+		description: config.siteDescription,
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: config.siteTitle,
+		description: config.siteDescription,
+	},
+	robots: {
+		index: true,
+		follow: true,
+	},
 };
 
 const interFont = Inter({

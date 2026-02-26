@@ -7,6 +7,8 @@ export default async function getPostBySlug(slug: string) {
         post (filter: { slug: { eq: "${slug}" } }) {
             _createdAt
             title
+            slug
+            preview
             cover {
                 responsiveImage {
                     sizes

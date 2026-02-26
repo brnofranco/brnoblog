@@ -1,7 +1,19 @@
 'use static';
 
+import type { Metadata } from 'next';
 import SocialMediaLinks from '@/components/SocialMediaLinks';
 import Image from 'next/image';
+
+export const metadata: Metadata = {
+	title: 'Sobre',
+	description: 'Conheça Bruno Franco, desenvolvedor Full Stack com experiência em React, Next.js, Node.js e Java.',
+	openGraph: {
+		title: 'Sobre | brnoblog',
+		description:
+			'Conheça Bruno Franco, desenvolvedor Full Stack com experiência em React, Next.js, Node.js e Java.',
+		type: 'profile',
+	},
+};
 
 export default function About() {
 	return (

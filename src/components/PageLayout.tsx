@@ -16,7 +16,7 @@ export default function PageLayout({ children }: Readonly<{ children: ReactNode 
 					<div className="flex h-full flex-col items-center justify-center">{children}</div>
 				</div>
 
-				<div className="flex w-full flex-col items-center justify-center py-16">
+				<div className="flex w-full flex-col items-center justify-center pt-24 pb-16">
 					<Footer />
 				</div>
 			</div>

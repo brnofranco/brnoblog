@@ -43,7 +43,7 @@ export default function CategoryFilter({
 			</button>
 
 			{isOpen ? (
-				<div className="absolute right-0 z-10 mt-3 w-64 bg-zinc-950 p-4 shadow-xl">
+				<div className="absolute z-10 mt-3 w-64 bg-zinc-950 p-4 shadow-xl xl:right-0">
 					<div className="mb-3 flex items-center justify-between">
 						<p className="text-sm font-semibold text-white">Categorias</p>
 						<button

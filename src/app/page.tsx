@@ -35,7 +35,7 @@ export default async function Home({ searchParams }: Readonly<HomeProps>) {
 	return (
 		<div className="h-full w-full flex-2">
 			<div className="mb-16 flex w-full items-center justify-center">
-				<h2 className="w-full text-center text-3xl font-bold text-white">
+				<h2 className="w-full text-center text-xl font-bold text-white xl:text-3xl">
 					Código, aprendizado e reflexões sobre desenvolvimento de software
 				</h2>
 			</div>

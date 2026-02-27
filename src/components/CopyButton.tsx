@@ -16,7 +16,7 @@ export default function CopyButton({ code }: Readonly<{ code: string }>) {
 	};
 
 	return (
-		<button onClick={copyEmailToClipBoard} title="Copiar código">
+		<button onClick={copyEmailToClipBoard} title="Copiar código" className="cursor-pointer">
 			{isChecked ? <FaCheck /> : <FaRegCopy />}
 		</button>
 	);

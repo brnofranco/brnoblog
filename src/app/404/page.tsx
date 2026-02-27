@@ -1,4 +1,4 @@
-'use static';
+'use client';
 
 export default function NotFound() {
 	return (

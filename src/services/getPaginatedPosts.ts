@@ -6,14 +6,11 @@ export default async function getPaginatedPosts(page: number, categoryIds?: stri
 	const POSTS_PER_PAGE = config.postsPerPage;
 	const skip = page * POSTS_PER_PAGE;
 
-	const categoryFilter =
-		categoryIds && categoryIds.length > 0
-			? `, filter: { categories: { allIn: [${categoryIds.map((id) => `"${id}"`).join(', ')}] } }`
-			: '';
+	const hasCategories = categoryIds && categoryIds.length > 0;
 
 	const PAGE_CONTENT_QUERY: string = `
-    query AllPosts {
-        allPosts (orderBy: [_createdAt_DESC], first: ${POSTS_PER_PAGE}, skip: ${skip}${categoryFilter})  {
+    query AllPosts($first: IntType!, $skip: IntType!${hasCategories ? ', $categoryIds: [ItemId!]!' : ''}) {
+        allPosts(orderBy: [_createdAt_DESC], first: $first, skip: $skip${hasCategories ? ', filter: { categories: { allIn: $categoryIds } }' : ''}) {
             _createdAt
             title
             slug
@@ -23,10 +20,15 @@ export default async function getPaginatedPosts(page: number, categoryIds?: stri
                 title
             }
         },
-        _allPostsMeta${categoryFilter && categoryIds ? `(filter: { categories: { allIn: [${categoryIds.map((id) => `"${id}"`).join(', ')}] } })` : ''} {
+        _allPostsMeta${hasCategories ? '(filter: { categories: { allIn: $categoryIds } })' : ''} {
             count
         }
     }`;
 
-	return (await performRequest({ query: PAGE_CONTENT_QUERY, revalidate: 0 })) as PaginatedPostData;
+	const variables: Record<string, unknown> = { first: POSTS_PER_PAGE, skip };
+	if (hasCategories) {
+		variables.categoryIds = categoryIds;
+	}
+
+	return (await performRequest({ query: PAGE_CONTENT_QUERY, variables, revalidate: 0 })) as PaginatedPostData;
 }

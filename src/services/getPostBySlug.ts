@@ -3,8 +3,8 @@ import { performRequest } from '@/lib/datocms';
 
 export default async function getPostBySlug(slug: string) {
 	const PAGE_CONTENT_QUERY = `
-    query Post {
-        post (filter: { slug: { eq: "${slug}" } }) {
+    query Post($slug: String!) {
+        post (filter: { slug: { eq: $slug } }) {
             _createdAt
             title
             slug
@@ -49,7 +49,7 @@ export default async function getPostBySlug(slug: string) {
         }
     }`;
 
-	const { post } = await performRequest({ query: PAGE_CONTENT_QUERY, revalidate: 0 });
+	const { post } = await performRequest({ query: PAGE_CONTENT_QUERY, variables: { slug }, revalidate: 0 });
 
 	return post as PostData;
 }

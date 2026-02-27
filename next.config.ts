@@ -13,15 +13,6 @@ const nextConfig: NextConfig = {
 			},
 		],
 	},
-	async redirects() {
-		return [
-			{
-				source: '/',
-				destination: '/posts',
-				permanent: true,
-			},
-		];
-	},
 	experimental: {
 		globalNotFound: true,
 	},

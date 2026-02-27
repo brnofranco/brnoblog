@@ -1,14 +1,10 @@
 'use static';
 
-import Link from 'next/link';
-
-export default function Home() {
+export default function NotFound() {
 	return (
-		<div className="mt-32 flex h-full w-full flex-col items-center justify-center gap-4">
-			<h1 className="text-center text-5xl font-bold">Página não encontrada!</h1>
-			<Link href="/posts">
-				<p className="text-title text-xl underline">Voltar para Home</p>
-			</Link>
+		<div className="flex h-full w-full flex-col gap-10 p-16">
+			<h2 className="mb-8 text-center text-4xl font-bold text-white opacity-80">Página não encontrada</h2>
+			<p className="text-justify text-xl">Este link não existe ou não está mais disponível.</p>
 		</div>
 	);
 }

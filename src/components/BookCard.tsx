@@ -23,7 +23,7 @@ export const BookCard = ({ book }: BookCardProps) => {
 
 			<div className="flex flex-col p-5">
 				<h3 className="text-title text-3xl font-bold">{book.title}</h3>
-				<p className="text-md opacity-60">{book.author}</p>
+				<p className="text-base opacity-60">{book.author}</p>
 
 				<p className="mt-4 text-justify text-lg">{book.description}</p>
 

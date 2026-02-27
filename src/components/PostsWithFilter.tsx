@@ -78,7 +78,7 @@ export default function PostsWithFilter({
 
 			<div className="flex h-full w-full flex-col items-center gap-10">
 				{allPosts.length === 0 ? (
-					<p className="w-[1024px] text-center text-sm text-zinc-400">
+					<p className="text-center text-sm text-zinc-400 xl:w-[1024px]">
 						Nenhum post com as categorias selecionadas.
 					</p>
 				) : (

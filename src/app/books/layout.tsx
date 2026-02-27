@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-	title: 'brnoblog - Leituras',
-	description: 'Blog do Bruno Franco',
+	title: ' brunofranco.dev - Leituras',
+	description: 'Lista de livros de programação lidos e recomendados por Bruno Franco.',
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

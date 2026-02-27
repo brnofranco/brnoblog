@@ -7,10 +7,12 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
 	title: 'brunofranco.dev',
-	description: 'Todos os posts do brnoblog sobre desenvolvimento de software, tecnologia e programação.',
+	description:
+		'Código, aprendizado e reflexões sobre desenvolvimento Full Stack. Artigos técnicos sobre React, Next.js, Node.js, Java, arquitetura de software e boas práticas de programação.',
 	openGraph: {
 		title: 'brunofranco.dev',
-		description: 'Todos os posts do brnoblog sobre desenvolvimento de software, tecnologia e programação.',
+		description:
+			'Código, aprendizado e reflexões sobre desenvolvimento Full Stack. Artigos técnicos sobre React, Next.js, Node.js, Java, arquitetura de software e boas práticas de programação.',
 		type: 'website',
 	},
 };

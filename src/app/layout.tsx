@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import './globals.css';
+import './global.css';
 import PageLayout from '../components/PageLayout';
 import { Inter } from 'next/font/google';
 import { config } from '@/shared/config';
@@ -16,13 +16,15 @@ export const metadata: Metadata = {
 		'desenvolvimento',
 		'software',
 		'tecnologia',
-		'JavaScript',
-		'TypeScript',
+		'javascript',
+		'typescript',
 		'React',
-		'Next.js',
-		'Node.js',
+		'nextjs',
+		'nodejs',
+		'blog',
+		'arquitetura de software',
 	],
-	authors: [{ name: 'Bruno Franco', url: config.socialMediaLinks.portfolio }],
+	authors: [{ name: 'Bruno Franco' }],
 	creator: 'Bruno Franco',
 	openGraph: {
 		type: 'website',

@@ -1,9 +1,5 @@
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-	title: 'brnoblog - Posts',
-	description: 'Blog do Bruno Franco',
-};
+import { metadata } from '../layout';
+export { metadata };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
 	return <>{children}</>;

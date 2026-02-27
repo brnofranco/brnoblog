@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import { BookCard } from '@/components/BookCard';
 import getBooks from '@/services/getBooks';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
-	title: 'Livros',
+	title: 'Leituras',
 	description: 'Lista de livros de programação lidos e recomendados por Bruno Franco.',
 	openGraph: {
-		title: 'Livros | brnoblog',
+		title: 'Leituras | brnoblog',
 		description: 'Lista de livros de programação lidos e recomendados por Bruno Franco.',
 		type: 'website',
 	},
@@ -17,33 +18,32 @@ export default async function Books() {
 
 	return (
 		<>
-			<div className="flex h-full w-full flex-1 flex-col gap-10">
-				<aside className="bg-post-body flex h-full w-full flex-col gap-6 p-8 shadow-md">
-					<h2 className="text-center text-3xl font-bold">Livros</h2>
-					<p className="text-justify">
-						Esses são os livros que li sobre programação e as minhas mais humildes recomendações.
-					</p>
-					<p className="text-justify">
-						Cada vez menos, em nossa área, as pessoas estão utilizando livros como método de estudo, tanto
-						pela velocidade da evolução das tecnologias quanto pela falta de hábito da maioria dos
-						estudantes.
-					</p>
-					<p className="text-justify">
-						Desde 2024, tenho desenvolvido o hábito da leitura. Minha motivação era ter maior facilidade e
-						velocidade em ler, que é uma habilidade importante para desenvolvedores. Por isso, sigo lendo
-						livros técnicos e livros para entretenimento. Fica a recomendação para sair das telas.
-					</p>
-					<a
-						className="text-sky-500 underline"
+			<div className="flex h-full w-full flex-col gap-10">
+				<h2 className="mb-8 text-center text-4xl font-bold text-white opacity-80">Recomendações de Leituras</h2>
+
+				<p className="text-justify text-xl">
+					Esses são os livros que li sobre programação e as minhas mais humildes recomendações.
+				</p>
+				<p className="text-justify text-xl">
+					Cada vez menos, em nossa área, as pessoas estão utilizando livros como método de estudo, tanto pela
+					velocidade da evolução das tecnologias quanto pela falta de hábito da maioria dos estudantes.
+				</p>
+				<p className="text-justify text-xl">
+					Desde 2024, tenho desenvolvido o hábito da leitura. Minha motivação era ter maior facilidade e
+					velocidade em ler, que é uma habilidade importante para desenvolvedores. Por isso, sigo lendo livros
+					técnicos e de entretenimento. Conto mais sobre isso no meu{' '}
+					<Link
 						href="/posts/habito-de-leitura-e-livros-que-li-em-2024"
 						target="_blank"
+						className="text-sky-500 underline"
 					>
-						Meu post sobre leitura 2024
-					</a>
-				</aside>
+						post
+					</Link>{' '}
+					das leituras de 2024. Fica a recomendação para sair das telas.
+				</p>
 			</div>
 
-			<div className="h-full w-full flex-2">
+			<div className="mt-12 h-full w-full">
 				<div className="flex h-full w-full flex-col justify-center gap-12">
 					{books.map((book) => (
 						<BookCard key={book.id} book={book} />

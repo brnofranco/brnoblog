@@ -1,7 +1,4 @@
-import SocialMediaSideBar from '@/components/SocialMediaSideBar';
 import { redirect } from 'next/navigation';
-import LatestPostsSideBar from '@/components/LatestPostsSideBar';
-import CategorySideBar from '@/components/CategorySideBar';
 import getPostBySlug from '@/services/getPostBySlug';
 import { RenderBlockContext, ResponsiveImageType, SRCImage, StructuredText } from 'react-datocms';
 import { getFormattedDate } from '@/shared/dayjs';
@@ -101,14 +98,12 @@ export default async function Post({ params }: Readonly<PostProps>) {
 		<>
 			<div className="h-full w-full flex-2">
 				<div className="flex h-full w-full justify-center">
-					<div key={post.id} className="bg-post-body h-full w-full p-4 shadow-md xl:p-8">
-						<h1 className="mb-12 text-center text-4xl font-bold">{post.title}</h1>
+					<div key={post.id} className="h-full w-full">
+						<h1 className="mb-8 text-center text-4xl font-bold text-white opacity-80">{post.title}</h1>
 
-						<p className="text-center text-sm text-gray-400">
-							Escrito por Bruno Franco | Publicado em {getFormattedDate(post._createdAt)}
+						<p className="mb-10 text-center text-sm text-gray-400">
+							Publicado em {getFormattedDate(post._createdAt)}
 						</p>
-
-						<hr className="my-10 h-[1px] w-full border-t-2 border-none bg-gray-700" />
 
 						<SRCImage data={post.cover.responsiveImage} imgClassName="mb-12" />
 
@@ -118,13 +113,9 @@ export default async function Post({ params }: Readonly<PostProps>) {
 					</div>
 				</div>
 
-				<Comments />
-			</div>
-
-			<div className="flex h-full w-full flex-1 flex-col gap-10">
-				<LatestPostsSideBar />
-				<CategorySideBar />
-				<SocialMediaSideBar />
+				<div className="mt-4">
+					<Comments />
+				</div>
 			</div>
 		</>
 	);

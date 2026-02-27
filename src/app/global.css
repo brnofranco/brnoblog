@@ -3,21 +3,16 @@
 :root {
 	--title: #2cb67d;
 	--text: #c9d3e7;
-	--background: #2a2d34;
-	--header: #101010;
-	--post-body: #232427;
+	--background: #141615;
 	--flex-2: 2 2 0%;
 	--flex-3: 3 3 0%;
 	--flex-4: 4 4 0%;
-	--footer-page: calc(100vh - 14.5rem);
 }
 
 @theme inline {
 	--color-title: var(--title);
 	--color-text: var(--text);
 	--color-background: var(--background);
-	--color-header: var(--header);
-	--color-post-body: var(--post-body);
 }
 
 @layer utilities {
@@ -31,10 +26,6 @@
 
 	.flex-4 {
 		flex: var(--flex-4);
-	}
-
-	.min-h-footer-page {
-		min-height: var(--footer-page);
 	}
 }
 

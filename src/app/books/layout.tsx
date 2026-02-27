@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-	title: 'brnoblog - Livros',
+	title: 'brnoblog - Leituras',
 	description: 'Blog do Bruno Franco',
 };
 

@@ -10,9 +10,9 @@ interface BookCardProps {
 
 export const BookCard = ({ book }: BookCardProps) => {
 	return (
-		<div className="bg-post-body flex flex-col rounded-xl lg:flex-row">
+		<div className="flex flex-col lg:flex-row">
 			<Image
-				className="mb-[-170px] rounded-t-xl lg:mb-0 lg:rounded-l-xl lg:rounded-r-none"
+				className="mb-[-170px] shadow-xl lg:mb-0"
 				style={{ width: 'auto', height: 'auto' }}
 				src={book.cover.responsiveImage.src}
 				height={195}
@@ -21,11 +21,11 @@ export const BookCard = ({ book }: BookCardProps) => {
 				priority
 			/>
 
-			<div className="bg-post-body flex flex-col rounded-b-xl p-5 lg:rounded-l-none lg:rounded-r-xl">
-				<h3 className="text-title text-2xl font-bold">{book.title}</h3>
-				<p className="text-sm opacity-60">{book.author}</p>
+			<div className="flex flex-col p-5">
+				<h3 className="text-title text-3xl font-bold">{book.title}</h3>
+				<p className="text-md opacity-60">{book.author}</p>
 
-				<p className="mt-4 text-justify">{book.description}</p>
+				<p className="mt-4 text-justify text-lg">{book.description}</p>
 
 				<div className="mt-4 flex gap-4">
 					{book.postLink && (

@@ -44,7 +44,7 @@ export default function PostPreview({ post, isLast = false }: Readonly<{ post: P
 				<h2 className="text-title text-2xl font-bold">{post.title}</h2>
 			</Link>
 
-			<p className="mb-6 text-justify">{post.preview.slice(0, 255)}...</p>
+			<p className="text-justify">{post.preview} [...]</p>
 
 			{!isLast ? <hr className="h-[2px] w-full border-t-2 border-none bg-gray-600" /> : null}
 		</div>

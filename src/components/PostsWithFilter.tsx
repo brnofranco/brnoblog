@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
@@ -24,11 +24,11 @@ export default function PostsWithFilter({
 }: Readonly<PostsWithFilterProps>) {
 	const router = useRouter();
 	const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set(initialSelectedIds || []));
-	const [isFirstRender, setIsFirstRender] = useState(true);
+	const isFirstRender = useRef(true);
 
 	useEffect(() => {
-		if (isFirstRender) {
-			setIsFirstRender(false);
+		if (isFirstRender.current) {
+			isFirstRender.current = false;
 			return;
 		}
 
@@ -37,13 +37,11 @@ export default function PostsWithFilter({
 		if (selectedIds.size > 0) {
 			params.set('categories', Array.from(selectedIds).join(','));
 			params.set('page', '0');
-		} else if (currentPage > 0) {
-			params.set('page', currentPage.toString());
 		}
 
 		const queryString = params.toString();
 		router.push(queryString ? `/?${queryString}` : '/');
-	}, [selectedIds, router, isFirstRender, currentPage]);
+	}, [selectedIds, router]);
 
 	function toggleCategory(id: string) {
 		setSelectedIds((prev) => {

@@ -1,5 +1,3 @@
-'use static';
-
 import Curriculum from '@/components/Curriculum';
 import type { Metadata } from 'next';
 

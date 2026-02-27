@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 	title: 'Leituras',
 	description: 'Lista de livros de programação lidos e recomendados por Bruno Franco.',
 	openGraph: {
-		title: 'Leituras | brnoblog',
+		title: 'Leituras | brunofranco.dev',
 		description: 'Lista de livros de programação lidos e recomendados por Bruno Franco.',
 		type: 'website',
 	},

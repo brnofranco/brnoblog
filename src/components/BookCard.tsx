@@ -29,7 +29,7 @@ export const BookCard = ({ book }: BookCardProps) => {
 
 				<div className="mt-4 flex gap-4">
 					{book.postLink && (
-						<Link className="text-sky-500 underline" href={book.postLink} target="_blank">
+						<Link className="text-link underline" href={book.postLink} target="_blank">
 							Meu post sobre o livro
 						</Link>
 					)}

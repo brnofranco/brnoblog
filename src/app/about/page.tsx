@@ -3,19 +3,23 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
 	title: 'Sobre',
-	description: 'Conheça Bruno Franco, desenvolvedor Full Stack com experiência em React, Next.js, Node.js e Java.',
+	description: 'Conheça Bruno Franco, desenvolvedor Full Stack com experiência em React, Node, Java e Go.',
 	openGraph: {
 		title: 'Sobre |  brunofranco.dev',
-		description:
-			'Conheça Bruno Franco, desenvolvedor Full Stack com experiência em React, Next.js, Node.js e Java.',
+		description: 'Conheça Bruno Franco, desenvolvedor Full Stack com experiência em React, Node, Java e Go.',
 		type: 'profile',
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: 'Sobre | brunofranco.dev',
+		description: 'Conheça Bruno Franco, desenvolvedor Full Stack com experiência em React, Node, Java e Go.',
 	},
 };
 
 export default function About() {
 	return (
 		<div className="flex h-full w-full flex-col gap-10">
-			<h2 className="mb-8 text-center text-4xl font-bold text-white opacity-80">Sobre</h2>
+			<h1 className="text-foreground mb-8 text-center text-4xl font-bold">Sobre</h1>
 
 			<div className="flex h-full w-full flex-col gap-4">
 				<p className="text-justify text-xl">

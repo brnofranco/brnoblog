@@ -99,9 +99,9 @@ export default async function Post({ params }: Readonly<PostProps>) {
 			<div className="h-full w-full flex-2">
 				<div className="flex h-full w-full justify-center">
 					<div key={post.id} className="h-full w-full">
-						<h1 className="mb-8 text-center text-4xl font-bold text-white opacity-80">{post.title}</h1>
+						<h1 className="text-foreground mb-8 text-center text-4xl font-bold opacity-80">{post.title}</h1>
 
-						<p className="mb-10 text-center text-sm text-gray-400">
+						<p className="text-text-muted mb-10 text-center text-sm">
 							Publicado em {getFormattedDate(post._createdAt)}
 						</p>
 

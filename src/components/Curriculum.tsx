@@ -4,8 +4,8 @@ import { ReactNode } from 'react';
 
 const Title = ({ title }: { title: string }) => (
 	<>
-		<h3 className="mt-4 text-justify text-2xl font-bold text-white opacity-80">{title}</h3>
-		<hr className="h-[2px] w-full border-t-2 border-none bg-gray-600" />
+		<h3 className="text-foreground mt-4 text-justify text-2xl font-bold opacity-80">{title}</h3>
+		<hr className="bg-divider h-[2px] w-full border-t-2 border-none" />
 	</>
 );
 

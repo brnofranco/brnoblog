@@ -34,22 +34,22 @@ export default function CategoryFilter({
 			<button
 				type="button"
 				onClick={() => setIsOpen((prev) => !prev)}
-				className="flex h-full cursor-pointer items-center justify-center gap-3 bg-zinc-950 p-3 text-sm font-semibold shadow-md transition hover:bg-zinc-900"
+				className="bg-surface hover:bg-surface-hover flex h-full cursor-pointer items-center justify-center gap-3 p-3 text-sm font-semibold shadow-md transition"
 			>
-				<span>Filtrar categorias</span>
+				<span>Filtrar posts</span>
 				{selectedIds.size > 0 ? (
-					<span className="bg-zinc-800 px-2 py-0.5 text-xs">{selectedIds.size}</span>
+					<span className="bg-surface-muted px-2 py-0.5 text-xs">{selectedIds.size}</span>
 				) : null}
 			</button>
 
 			{isOpen ? (
-				<div className="absolute z-10 mt-3 w-64 bg-zinc-950 p-4 shadow-xl xl:right-0">
+				<div className="bg-surface absolute z-10 mt-3 w-64 p-4 shadow-xl xl:right-0">
 					<div className="mb-3 flex items-center justify-between">
-						<p className="text-sm font-semibold text-white">Categorias</p>
+						<p className="text-foreground text-sm font-semibold">Categorias</p>
 						<button
 							type="button"
 							onClick={onClear}
-							className="text-xs font-semibold text-zinc-300 transition hover:text-white"
+							className="text-text-subtle hover:text-foreground text-xs font-semibold transition"
 						>
 							Limpar
 						</button>
@@ -61,13 +61,13 @@ export default function CategoryFilter({
 							return (
 								<label
 									key={category.id}
-									className="flex cursor-pointer items-center gap-2 border border-transparent px-2 py-1 text-sm text-zinc-200 transition hover:border-zinc-700"
+									className="text-text-muted hover:border-border flex cursor-pointer items-center gap-2 border border-transparent px-2 py-1 text-sm transition"
 								>
 									<input
 										type="checkbox"
 										checked={isSelected}
 										onChange={() => onToggleCategory(category.id)}
-										className="h-4 w-4 border-zinc-600 bg-zinc-900 text-white"
+										className="border-border-subtle bg-surface-hover h-4 w-4 text-white"
 									/>
 									<span>{category.title}</span>
 								</label>

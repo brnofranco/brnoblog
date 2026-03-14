@@ -5,11 +5,16 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
 	title: 'Leituras',
-	description: 'Lista de livros de programação lidos e recomendados por Bruno Franco.',
+	description: 'Lista de livros de programação recomendados por Bruno Franco.',
 	openGraph: {
 		title: 'Leituras | brunofranco.dev',
-		description: 'Lista de livros de programação lidos e recomendados por Bruno Franco.',
+		description: 'Lista de livros de programação recomendados por Bruno Franco.',
 		type: 'website',
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: 'Leituras | brunofranco.dev',
+		description: 'Lista de livros de programação recomendados por Bruno Franco.',
 	},
 };
 
@@ -19,7 +24,7 @@ export default async function Books() {
 	return (
 		<>
 			<div className="flex h-full w-full flex-col gap-10">
-				<h2 className="mb-8 text-center text-4xl font-bold text-white opacity-80">Recomendações de Leituras</h2>
+				<h1 className="text-foreground mb-8 text-center text-4xl font-bold">Recomendações de Leituras</h1>
 
 				<p className="text-justify text-xl">
 					Esses são os livros que li sobre programação e as minhas mais humildes recomendações.
@@ -35,7 +40,7 @@ export default async function Books() {
 					<Link
 						href="/posts/habito-de-leitura-e-livros-que-li-em-2024"
 						target="_blank"
-						className="text-sky-500 underline"
+						className="text-link underline"
 					>
 						post
 					</Link>{' '}

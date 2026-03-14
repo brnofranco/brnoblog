@@ -63,7 +63,7 @@ export default function PostsWithFilter({
 		<div className="h-full w-full flex-2">
 			<div className="mb-8 flex flex-col gap-4">
 				<div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-					<p className="text-4xl font-bold text-white">Publicações</p>
+					<h2 className="text-foreground text-3xl font-bold">Publicações</h2>
 
 					<CategoryFilter
 						allCategories={allCategories}
@@ -76,7 +76,7 @@ export default function PostsWithFilter({
 
 			<div className="flex h-full w-full flex-col items-center gap-10">
 				{allPosts.length === 0 ? (
-					<p className="text-center text-sm text-zinc-400 xl:w-[1024px]">
+					<p className="text-text-muted text-center text-sm xl:w-[1024px]">
 						Nenhum post com as categorias selecionadas.
 					</p>
 				) : (
@@ -92,7 +92,7 @@ export default function PostsWithFilter({
 				{currentPage > 0 ? (
 					<Link
 						href={`/?page=${currentPage - 1}${selectedIds.size > 0 ? `&categories=${Array.from(selectedIds).join(',')}` : ''}`}
-						className="flex h-full items-center justify-center gap-2 bg-zinc-950 p-4 text-sm font-semibold shadow-md transition hover:bg-zinc-900"
+						className="bg-surface hover:bg-surface-hover flex h-full items-center justify-center gap-2 p-4 text-sm font-semibold shadow-md transition"
 					>
 						<FaChevronLeft />
 						<span>Anterior</span>
@@ -102,7 +102,7 @@ export default function PostsWithFilter({
 				{currentPage < totalPages - 1 ? (
 					<Link
 						href={`/?page=${currentPage + 1}${selectedIds.size > 0 ? `&categories=${Array.from(selectedIds).join(',')}` : ''}`}
-						className="flex h-full items-center justify-center gap-3 bg-zinc-950 p-4 text-sm font-semibold shadow-md transition hover:bg-zinc-900"
+						className="bg-surface hover:bg-surface-hover flex h-full items-center justify-center gap-3 p-4 text-sm font-semibold shadow-md transition"
 					>
 						<span>Próximo</span>
 						<FaChevronRight />

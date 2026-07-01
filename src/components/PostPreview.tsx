@@ -39,14 +39,14 @@ export default function PostPreview({ post, isLast = false }: Readonly<{ post: P
 
 				<div className="flex w-full flex-wrap items-center justify-start gap-2 xl:justify-end">
 					{post.categories.map((category) => (
-						<div key={category.id} className="border-title bg-surface rounded-sm border px-2 pt-1">
+						<div key={category.id} className="border-title bg-surface rounded-sm border px-2 py-1">
 							<h3 className="text-title text-[0.68rem] tracking-[0.18em] uppercase">{category.title}</h3>
 						</div>
 					))}
 				</div>
 			</div>
 
-			<h2 className="text-title text-2xl font-semibold md:text-3xl">{post.title}</h2>
+			<h2 className="text-title text-2xl font-semibold">{post.title}</h2>
 
 			<p className="text-justify leading-7">{post.preview}</p>
 		</Link>

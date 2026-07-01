@@ -61,9 +61,9 @@ export default function PostsWithFilter({
 
 	return (
 		<div className="h-full w-full flex-2">
-			<div className="mb-8 flex flex-col gap-4">
+			<div className="border-border mb-8 flex flex-col gap-4">
 				<div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-					<h2 className="text-foreground text-3xl font-bold">Publicações</h2>
+					<h2 className="text-foreground text-3xl font-semibold tracking-[0.08em] uppercase">Publicações</h2>
 
 					<CategoryFilter
 						allCategories={allCategories}
@@ -92,7 +92,7 @@ export default function PostsWithFilter({
 				{currentPage > 0 ? (
 					<Link
 						href={`/?page=${currentPage - 1}${selectedIds.size > 0 ? `&categories=${Array.from(selectedIds).join(',')}` : ''}`}
-						className="bg-surface hover:bg-surface-hover flex h-full items-center justify-center gap-2 p-4 text-sm font-semibold shadow-md transition"
+						className="bg-surface hover:bg-surface-hover border-border flex h-full items-center justify-center gap-2 border px-4 py-3 text-xs font-semibold tracking-[0.2em] uppercase shadow-md transition"
 					>
 						<FaChevronLeft />
 						<span>Anterior</span>
@@ -102,7 +102,7 @@ export default function PostsWithFilter({
 				{currentPage < totalPages - 1 ? (
 					<Link
 						href={`/?page=${currentPage + 1}${selectedIds.size > 0 ? `&categories=${Array.from(selectedIds).join(',')}` : ''}`}
-						className="bg-surface hover:bg-surface-hover flex h-full items-center justify-center gap-3 p-4 text-sm font-semibold shadow-md transition"
+						className="bg-surface hover:bg-surface-hover border-border flex h-full items-center justify-center gap-3 border px-4 py-3 text-xs font-semibold tracking-[0.2em] uppercase shadow-md transition"
 					>
 						<span>Próximo</span>
 						<FaChevronRight />

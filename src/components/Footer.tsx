@@ -8,8 +8,8 @@ export default function Footer() {
 	const currentYear = today.getFullYear();
 
 	return (
-		<footer className="flex h-full w-full flex-col items-center justify-center">
-			<div className="mb-4 flex gap-8 text-sm font-bold">
+		<footer className="border-border flex h-full w-full flex-col items-center justify-center border-t pt-8">
+			<div className="mb-4 flex gap-8 text-sm font-semibold tracking-[0.2em] uppercase">
 				<Link href={config.socialMediaLinks.linkedIn} target="_blank" title="LinkedIn">
 					<p>LinkedIn</p>
 				</Link>
@@ -23,7 +23,9 @@ export default function Footer() {
 				</Link>
 			</div>
 
-			<p className="text-text-dim text-sm">© {currentYear} Criado por Bruno Franco</p>
+			<p className="text-text-dim text-center text-xs tracking-[0.28em] uppercase">
+				© {currentYear} Criado por Bruno Franco
+			</p>
 		</footer>
 	);
 }

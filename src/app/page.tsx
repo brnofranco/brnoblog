@@ -34,12 +34,6 @@ export default async function Home({ searchParams }: Readonly<HomeProps>) {
 
 	return (
 		<div className="h-full w-full flex-2">
-			<div className="mb-16 flex w-full items-center justify-center">
-				<h1 className="text-foreground w-full text-center text-2xl font-bold xl:text-3xl">
-					Código, aprendizado e reflexões sobre desenvolvimento de software
-				</h1>
-			</div>
-
 			<PostsWithFilter
 				allPosts={allPosts}
 				allCategories={allCategories}

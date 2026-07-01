@@ -34,22 +34,22 @@ export default function CategoryFilter({
 			<button
 				type="button"
 				onClick={() => setIsOpen((prev) => !prev)}
-				className="bg-surface hover:bg-surface-hover flex h-full cursor-pointer items-center justify-center gap-3 p-3 text-sm font-semibold shadow-md transition"
+				className="bg-surface hover:bg-surface-hover border-border flex h-full cursor-pointer items-center justify-center gap-3 border px-4 py-3 text-xs font-semibold tracking-[0.24em] uppercase shadow-md transition"
 			>
-				<span>Filtrar posts</span>
+				<span>Filtrar</span>
 				{selectedIds.size > 0 ? (
-					<span className="bg-surface-muted px-2 py-0.5 text-xs">{selectedIds.size}</span>
+					<span className="bg-background border-border border px-2 py-0.5 text-xs">{selectedIds.size}</span>
 				) : null}
 			</button>
 
 			{isOpen ? (
-				<div className="bg-surface absolute z-10 mt-3 w-64 p-4 shadow-xl xl:right-0">
+				<div className="bg-surface border-border absolute z-10 mt-3 w-64 border p-4 shadow-xl xl:right-0">
 					<div className="mb-3 flex items-center justify-between">
-						<p className="text-foreground text-sm font-semibold">Categorias</p>
+						<p className="text-foreground text-xs font-semibold tracking-[0.24em] uppercase">Categorias</p>
 						<button
 							type="button"
 							onClick={onClear}
-							className="text-text-subtle hover:text-foreground text-xs font-semibold transition"
+							className="text-text-subtle hover:text-foreground text-[0.68rem] font-semibold tracking-[0.18em] uppercase transition"
 						>
 							Limpar
 						</button>
@@ -61,7 +61,7 @@ export default function CategoryFilter({
 							return (
 								<label
 									key={category.id}
-									className="text-text-muted hover:border-border flex cursor-pointer items-center gap-2 border border-transparent px-2 py-1 text-sm transition"
+									className={`text-text-muted hover:border-border flex cursor-pointer items-center gap-2 border px-2 py-1 text-sm transition ${isSelected ? 'border-border bg-background' : 'border-transparent'}`}
 								>
 									<input
 										type="checkbox"

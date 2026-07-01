@@ -9,13 +9,26 @@ import { FaXTwitter } from 'react-icons/fa6';
 export default function Header() {
 	const pathname = usePathname();
 	const basePath = pathname.split('/')[1];
+	const isPostsPage = basePath === '' || basePath === 'posts';
+	const isBooksPage = basePath === 'books';
+	const isAboutPage = basePath === 'about';
 
 	return (
-		<header className="flex w-full flex-col items-center justify-center">
-			<div className="flex w-4/5 flex-col justify-center gap-8 py-4 xl:w-4/6">
-				<Link href="/">
-					<p className="text-foreground flex cursor-pointer items-center justify-center text-5xl font-bold">
-						Bruno Franco
+		<header className="border-border flex w-full flex-col items-center justify-center border-b pb-8">
+			<div className="flex w-full flex-col justify-center gap-6">
+				<Link href="/" className="flex flex-col items-center justify-center gap-3">
+					<div className="flex w-full items-center gap-4">
+						<span className="bg-border h-px flex-1" />
+						<p
+							className="text-foreground text-center text-4xl font-semibold tracking-[0.22em] uppercase md:text-5xl"
+							style={{ fontFamily: 'var(--font-title), serif' }}
+						>
+							Bruno Franco
+						</p>
+						<span className="bg-border h-px flex-1" />
+					</div>
+					<p className="text-text-dim text-center text-[0.68rem] tracking-[0.42em] uppercase">
+						Notas, estudos e reflexões
 					</p>
 				</Link>
 
@@ -33,26 +46,29 @@ export default function Header() {
 					</Link>
 				</div>
 
-				<nav className="flex items-center justify-center gap-12">
+				<nav className="flex items-center justify-center gap-10 uppercase">
 					<Link
 						href="/"
-						className={`text-text text-sm font-bold ${(basePath === '' || basePath === 'posts') && 'text-foreground'}`}
+						aria-current={isPostsPage ? 'page' : undefined}
+						className={`relative pb-1 font-medium transition-colors after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:transition-transform after:duration-200 ${isPostsPage ? 'text-foreground after:bg-title after:scale-x-100' : 'text-text after:bg-border-subtle hover:text-foreground hover:after:bg-border after:scale-x-0 hover:after:scale-x-100'}`}
 					>
-						POSTS
+						P O S T S
 					</Link>
 
 					<Link
 						href="/books"
-						className={`text-text text-sm font-bold ${basePath === 'books' && 'text-foreground'}`}
+						aria-current={isBooksPage ? 'page' : undefined}
+						className={`relative pb-1 font-medium transition-colors after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:transition-transform after:duration-200 ${isBooksPage ? 'text-foreground after:bg-title after:scale-x-100' : 'text-text after:bg-border-subtle hover:text-foreground hover:after:bg-border after:scale-x-0 hover:after:scale-x-100'}`}
 					>
-						LEITURAS
+						L E I T U R A S
 					</Link>
 
 					<Link
 						href="/about"
-						className={`text-text text-sm font-bold ${basePath === 'about' && 'text-foreground'}`}
+						aria-current={isAboutPage ? 'page' : undefined}
+						className={`relative pb-1 font-medium transition-colors after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:transition-transform after:duration-200 ${isAboutPage ? 'text-foreground after:bg-title after:scale-x-100' : 'text-text after:bg-border-subtle hover:text-foreground hover:after:bg-border after:scale-x-0 hover:after:scale-x-100'}`}
 					>
-						SOBRE
+						S O B R E
 					</Link>
 				</nav>
 			</div>

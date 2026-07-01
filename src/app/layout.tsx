@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import './global.css';
 import PageLayout from '../components/PageLayout';
-import { Inter } from 'next/font/google';
+import { Caudex, Metamorphous, Noto_Serif } from 'next/font/google';
 import { config } from '@/shared/config';
 
 export const metadata: Metadata = {
@@ -45,15 +45,27 @@ export const metadata: Metadata = {
 	},
 };
 
-const interFont = Inter({
+const bodyFont = Noto_Serif({
 	subsets: ['latin'],
 	weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-	variable: '--font-inter',
+	variable: '--font-body',
+});
+
+const displayFont = Caudex({
+	subsets: ['latin'],
+	weight: '400',
+	variable: '--font-display',
+});
+
+const titleFont = Metamorphous({
+	subsets: ['latin'],
+	weight: '400',
+	variable: '--font-title',
 });
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
 	return (
-		<html lang="pt-br" className={interFont.variable}>
+		<html lang="pt-br" className={`${bodyFont.variable} ${displayFont.variable} ${titleFont.variable}`}>
 			<body>
 				<PageLayout>{children}</PageLayout>
 			</body>

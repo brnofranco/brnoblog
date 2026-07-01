@@ -1,5 +1,5 @@
 export const config = {
-	siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://brnoblog.vercel.app',
+	siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://brnofranco.vercel.app',
 	siteTitle: 'Site Bruno Franco',
 	siteDescription:
 		'Código, aprendizado e reflexões sobre desenvolvimento Full Stack. Artigos técnicos sobre React, Next.js, Node.js, Java, arquitetura de software e boas práticas de programação.',

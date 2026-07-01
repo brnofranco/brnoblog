@@ -23,8 +23,8 @@ export default async function Books() {
 
 	return (
 		<>
-			<div className="flex h-full w-full flex-col gap-10">
-				<h1 className="text-foreground mb-8 text-center text-4xl font-bold">Recomendações de Leituras</h1>
+			<div className="border-border flex h-full w-full flex-col justify-center gap-10 border-b pb-8">
+				<h1 className="text-foreground text-3xl font-bold uppercase">Recomendações de Leitura</h1>
 
 				<p className="text-justify text-xl">
 					Esses são os livros que li sobre programação e as minhas mais humildes recomendações.

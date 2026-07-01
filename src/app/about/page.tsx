@@ -19,9 +19,9 @@ export const metadata: Metadata = {
 export default function About() {
 	return (
 		<div className="flex h-full w-full flex-col gap-10">
-			<h1 className="text-foreground mb-8 text-center text-4xl font-bold">Sobre</h1>
+			<h1 className="text-foreground text-3xl font-bold uppercase">Sobre</h1>
 
-			<div className="flex h-full w-full flex-col gap-4">
+			<div className="border-border flex h-full w-full flex-col items-center justify-center gap-4 border-b pb-8">
 				<p className="text-justify text-xl">
 					Prazer, sou Bruno Franco. Estou em contato com o mundo da programação desde 2018 e de lá pra cá
 					percebo que cada vez mais sei que nada sei.

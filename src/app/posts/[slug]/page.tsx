@@ -21,6 +21,43 @@ interface PostProps {
 	params: Promise<{ slug: string }>;
 }
 
+function normalizeWhitespace(text: string): string {
+	return text.replace(/\s+/g, ' ').trim();
+}
+
+function truncate(text: string, maxLength: number): string {
+	if (text.length <= maxLength) {
+		return text;
+	}
+
+	return `${text.slice(0, maxLength - 1).trimEnd()}…`;
+}
+
+function buildSeoDescription(title: string, preview?: string): string {
+	const cleanPreview = normalizeWhitespace(preview || '');
+
+	if (!cleanPreview) {
+		return truncate(`Leia o artigo ${title} no blog do Bruno Franco.`, 160);
+	}
+
+	const lowerPreview = cleanPreview.toLocaleLowerCase('pt-BR');
+	const lowerTitle = title.toLocaleLowerCase('pt-BR');
+	const combined = lowerPreview.includes(lowerTitle) ? cleanPreview : `${title}. ${cleanPreview}`;
+
+	return truncate(combined, 160);
+}
+
+function buildKeywords(title: string, slug: string): string[] {
+	const terms = `${title} ${slug}`
+		.toLocaleLowerCase('pt-BR')
+		.normalize('NFD')
+		.replace(/[\u0300-\u036f]/g, '')
+		.split(/[^a-z0-9]+/)
+		.filter((term) => term.length > 2);
+
+	return Array.from(new Set(['blog', 'desenvolvimento', 'programacao', ...terms])).slice(0, 14);
+}
+
 export async function generateStaticParams() {
 	const posts = await getAllPostSlugs();
 	return posts.map((post: PostSlugData) => ({ slug: post.slug }));
@@ -32,19 +69,27 @@ export async function generateMetadata({ params }: PostProps): Promise<Metadata>
 
 	if (!post?.title) return {};
 
-	const description = post.preview?.slice(0, 160);
+	const description = buildSeoDescription(post.title, post.preview);
+	const keywords = buildKeywords(post.title, slug);
 	const coverImage = post.cover?.responsiveImage;
+	const canonicalPath = `/posts/${slug}`;
 
 	return {
 		title: post.title,
 		description,
+		keywords,
+		robots: {
+			index: true,
+			follow: true,
+		},
 		alternates: {
-			canonical: `/posts/${slug}`,
+			canonical: canonicalPath,
 		},
 		openGraph: {
 			title: post.title,
 			description,
 			type: 'article',
+			url: canonicalPath,
 			publishedTime: post._createdAt,
 			...(coverImage?.src && {
 				images: [
@@ -61,6 +106,7 @@ export async function generateMetadata({ params }: PostProps): Promise<Metadata>
 			card: 'summary_large_image',
 			title: post.title,
 			description,
+			creator: '@brnofranco',
 			...(coverImage?.src && { images: [coverImage.src as string] }),
 		},
 	};

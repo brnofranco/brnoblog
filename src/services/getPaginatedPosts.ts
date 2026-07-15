@@ -30,5 +30,9 @@ export default async function getPaginatedPosts(page: number, categoryIds?: stri
 		variables.categoryIds = categoryIds;
 	}
 
-	return (await performRequest({ query: PAGE_CONTENT_QUERY, variables, revalidate: 0 })) as PaginatedPostData;
+    return (await performRequest({
+        query: PAGE_CONTENT_QUERY,
+        variables,
+        revalidate: config.cmsRevalidateSeconds,
+    })) as PaginatedPostData;
 }

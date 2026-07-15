@@ -3,6 +3,7 @@ export const config = {
 	siteTitle: 'Site Bruno Franco',
 	siteDescription:
 		'Código, aprendizado e reflexões sobre desenvolvimento Full Stack. Artigos técnicos sobre React, Next.js, Node.js, Java, arquitetura de software e boas práticas de programação.',
+	cmsRevalidateSeconds: parseInt(process.env.CMS_REVALIDATE_SECONDS || '3600'),
 	postsPerPage: parseInt(process.env.POSTS_PER_PAGE || '5'),
 	latestPostsQuantity: parseInt(process.env.LATEST_POSTS_QUANTITY || '3'),
 	socialMediaLinks: {

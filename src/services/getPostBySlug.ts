@@ -1,5 +1,6 @@
 import { PostData } from '@/components/PostPreview';
 import { performRequest } from '@/lib/datocms';
+import { config } from '@/shared/config';
 
 export default async function getPostBySlug(slug: string) {
 	const PAGE_CONTENT_QUERY = `
@@ -49,7 +50,11 @@ export default async function getPostBySlug(slug: string) {
         }
     }`;
 
-	const { post } = await performRequest({ query: PAGE_CONTENT_QUERY, variables: { slug }, revalidate: 0 });
+	const { post } = await performRequest({
+		query: PAGE_CONTENT_QUERY,
+		variables: { slug },
+		revalidate: config.cmsRevalidateSeconds,
+	});
 
 	return post as PostData;
 }

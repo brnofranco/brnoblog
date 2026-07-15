@@ -9,6 +9,9 @@ export const metadata: Metadata = {
 	title: 'brunofranco.dev',
 	description:
 		'Código, aprendizado e reflexões sobre desenvolvimento Full Stack. Artigos técnicos sobre React, Next.js, Node.js, Java, arquitetura de software e boas práticas de programação.',
+	alternates: {
+		canonical: '/',
+	},
 	openGraph: {
 		title: 'brunofranco.dev',
 		description:

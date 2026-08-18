@@ -18,8 +18,8 @@ export default function Footer() {
 					<p>GitHub</p>
 				</Link>
 
-				<Link href={config.socialMediaLinks.twitter} target="_blank" title="X | Twitter">
-					<p>X | Twitter</p>
+				<Link href={config.socialMediaLinks.twitter} target="_blank" title="Twitter">
+					<p>X</p>
 				</Link>
 			</div>
 

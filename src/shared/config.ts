@@ -1,6 +1,6 @@
 export const config = {
 	siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://brnofranco.vercel.app',
-	siteTitle: 'Site Bruno Franco',
+	siteTitle: 'brunofranco.dev',
 	siteDescription:
 		'Código, aprendizado e reflexões sobre desenvolvimento Full Stack. Artigos técnicos sobre React, Next.js, Node.js, Java, arquitetura de software e boas práticas de programação.',
 	cmsRevalidateSeconds: parseInt(process.env.CMS_REVALIDATE_SECONDS || '3600'),
